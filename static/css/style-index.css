@@ -9,7 +9,7 @@
 }
 body{
     background-color: #2d3846;
-    background: url(\The-Cargos\static\images\background-logo.png);
+    background-image: url(/The-Cargos/static/images/background-logo.png);
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -82,17 +82,17 @@ main section .btn-box{
     
 }
 main section .text{
-    position: absolute;
+    position: justify;
     bottom: 200px;
     color: #fff;
     line-height: 22px;
    
 }
 main section .text2{
-    position: absolute;
+    position: justify;
     bottom: 163px;
     color: #fff;
-    
+    margin-bottom: 5vh;
    
 }
 .btn-box2{
