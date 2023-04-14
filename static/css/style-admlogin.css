@@ -1,4 +1,4 @@
-body{
+body {
 
     background-color: rgb(34, 34, 34);
     color: rgb(255, 255, 255);
@@ -6,12 +6,10 @@ body{
     margin: 0 auto;
     padding: 15px;
 
-
 }
 
-
-header{
-
+header {
+    text-decoration-line: overline underline;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -19,35 +17,35 @@ header{
 
 }
 
-#title{
+#title {
 
     flex-direction: column;
     line-height: 10px;
-    
+
 
 }
 
-li{
+li {
 
     display: inline-block;
     margin: 20px;
 
 }
 
-a{
+a {
 
     color: rgb(255, 255, 255);
 
 }
 
-a:hover{
+a:hover {
 
     color: blueviolet;
     transition: 0.3s all;
 
 }
 
-#inscreva-se-btn{
+#inscreva-se-btn {
 
     border: 2px solid blueviolet;
     padding: 10px;
@@ -55,28 +53,29 @@ a:hover{
 
 }
 
-#inscreva-se-btn:hover{
+#inscreva-se-btn:hover {
 
-        background-color: blueviolet;
-        color: aliceblue;
+    background-color: blueviolet;
+    color: aliceblue;
 
 }
 
-h1{
+h1 {
 
-    font-weight: 200px ;
-    
+    font-weight: 200px;
+
 }
 
-main{
+main {
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-top: 50px;
 
 }
 
-h2{
+h2 {
 
     font-size: 45px;
     line-height: 40px;
@@ -84,13 +83,13 @@ h2{
 
 }
 
-span{
+span {
 
     color: blueviolet;
 
 }
 
-p{
+p {
 
     line-height: 20px;
     max-width: 500px;
@@ -98,22 +97,21 @@ p{
 
 }
 
-img{
+img {
 
     width: 600px;
-    
-    
+
+
 }
 
-form{
-
+form {
     display: flex;
     flex-direction: column;
     width: 70%;
 
 }
 
-form [type="submit"]{
+form [type="submit"] {
 
     height: 50px;
     width: 50%;
@@ -122,19 +120,29 @@ form [type="submit"]{
 
 }
 
-form [type="submit"]:hover{
+form [type="submit"]:hover {
 
     cursor: pointer;
+    background-color: darkviolet;
 
 }
 
-input{
+input {
 
     margin-top: 20px;
     height: 20px;
     padding: 20px;
     border-radius: 20px;
-    border-color: #000 ;
+    border-color: #000;
     font-size: 15px;
+    padding-right: 200px;
 
+}
+
+#btn-login {
+    padding: 0px;
+}
+
+aside {
+    margin-top: 10vh;
 }
