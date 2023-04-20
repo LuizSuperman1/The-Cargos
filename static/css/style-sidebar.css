@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
+
 .sidebar{
   position: fixed;
   left: 0;
@@ -237,11 +238,9 @@
   width: calc(100% - 250px);
 }
 .home-section .text{
-  display: inline-block;
   color: #11101d;
   font-size: 25px;
   font-weight: 500;
-  margin: 18px
 }
 @media (max-width: 420px) {
   .sidebar li .tooltip{

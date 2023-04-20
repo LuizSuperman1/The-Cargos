@@ -2,24 +2,86 @@
 <!-- Created By CodingNepal - www.codingnepalweb.com -->
 
 <!DOCTYPE html>
-    <!-- Coding by CodingLab | www.codinglabweb.com -->
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pedido</title>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="pt-br">
 
-        <!-- Swiper CSS -->
-        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/ped.css">
-        
-                                        
-    </head>
-    <body>
+    <link rel="stylesheet" href="/The-Cargos/static/css/style-sidebar.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="/The-Cargos/static/css/swiper-bundle.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/The-Cargos/static/css/style-ped.css">
+
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxs-shopping-bag-alt bx-tada icon'></i>
+            <div class="logo_name">TheCargos</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Painel inicial</span>
+                </a>
+                <span class="tooltip">Painel innicial</span>
+            </li>
+            <li>
+                <a href="admperfil.html">
+                    <i class='bx bxs-user-account'></i>
+                    <span class="links_name">Do utilizador</span>
+                </a>
+                <span class="tooltip">Do utilizador</span>
+            </li>
+            <li>
+
+            <li>
+                <a href="ped.html">
+                    <i class='bx bx-package'></i>
+                    <span class="links_name">Pedidos</span>
+                </a>
+                <span class="tooltip">Pedidos</span>
+            </li>
+            <li>
+                <a href="estoque.html">
+                    <i class='bx bxl-dropbox'></i>
+                    <span class="links_name">Estoque</span>
+                </a>
+                <span class="tooltip">Estoque</span>
+            </li>
+            <li>
+                <a href="pagamento.html">
+                    <i class='bx bx-credit-card'></i>
+                    <span class="links_name">Formas de pagamento</span>
+                </a>
+                <span class="tooltip">Formas de pagamento</span>
+            </li>
+            <li>
+            <li class="profile">
+                <div class="profile-details">
+                    <!--<img src="profile.jpg" alt="profileImg">-->
+                    <div class="name_job">
+                        <div class="name">Ramon Ponci</div>
+                        <div class="job">Web designer</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
         <div class="slide-container swiper">
 
             <h1>Pedidos</h1>
@@ -31,7 +93,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="IMG_Maria.jpg" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/IMG_Maria.JPG" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -47,7 +109,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="images/davi.JPG" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/Img_davi.JPG" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -63,7 +125,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="images/marianna.JPG" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/IMG_marianna.JPG" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -79,7 +141,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                               <img src="images/ramon.JPG" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/IMG_ramon.JPG" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -95,7 +157,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="images/Isa.jpg" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/IMG_isa.jpg" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -111,7 +173,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="images/IMG_LUIX.jpg" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/IMG_LUIX.jpg" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -127,7 +189,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="images/profile7.jpg" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/ascalcas.png" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -143,7 +205,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="images/IMG_Jullia.jpeg" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/IMG_Jullia.jpeg" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -159,7 +221,7 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="images/breno.jpeg" alt="" class="card-img">
+                                <img src="/The-Cargos/static/images/breno.jpeg" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -177,18 +239,43 @@
             <div class="swiper-button-prev swiper-navBtn"></div>
             <div class="swiper-pagination"></div>
         </div>
-        
-    </body>
+        </div>
+    </section>
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            menuBtnChange();//calling the function(optional)
+        });
+
+        searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+            sidebar.classList.toggle("open");
+            menuBtnChange(); //calling the function(optional)
+        });
+
+        // following are the code to change sidebar button(optional)
+        function menuBtnChange() {
+            if (sidebar.classList.contains("open")) {
+                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+            } else {
+                closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+            }
+        }
+    </script>
+</body>
 
 
-    <!-- Swiper JS -->
-      
-    <script src="js/swiper-bundle.min.js"></script>
+<!-- Swiper JS -->
 
-    <!-- JavaScript -->
-      
-    <script src="js/ped.js"></script>
-    
-   
+<script src="/The-Cargos/static/js/swiper-bundle.min.js"></script>
+
+<!-- JavaScript -->
+
+<script src="/The-Cargos/static/js/ped.js"></script>
+
+
 
 </html>
