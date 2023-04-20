@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Estoque</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='\The-Cargos\static\css\style-estoque.css'>
-    <link rel="stylesheet" href="\The-Cargos\static\css\style-sidebar.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/The-Cargos/static/css/style-sidebar.css">
+    <link rel="stylesheet" href="/The-Cargos/static/css/style-admperfil.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxs-shopping-bag-alt bx-tada icon'></i>
@@ -72,65 +71,52 @@
     </div>
     <section class="home-section">
         <div class="text">
+            <div class="container">
+                <div class="card">
 
-            <h1>Estoque</h1>
-            <div id="wrap">
-                <input type="text" placeholder="Nome:">
-                <input type="number" placeholder="Quantidade">
-                <input type="number" placeholder="Preço">
-                <input type="text" placeholder="Prateleira">
-                <input type="text" placeholder="Descrição">
-                <input type="text" placeholder="Categoria">
+                    <img src="/The-Cargos/static/images/ramon2.JPG" alt="perfil" class="profile-img">
+
+                    <div class="container-text">
+                        <h1 class="name">
+                            Ramon Ponci de Oliveira
+                        </h1>
+
+                        <h3 class="desc">
+                            Administrador do sistema interno <b>TheCargos ADM</b>
+                            <br>Usuario: <b>Ramon Ponci de Oliveira</b>
+                            <p> <br>Credenciais: THURIDLMMG<br></p>
+
+                        </h3>
+
+                    </div>
+                </div>
             </div>
-            <div id="botoes">
-                <button>Cadastrar</button>
-                <button>Excluir</button>
-                <button>Editar</button>
-            </div>
-            <div id="saida">
-                <table width="100%" height="5%">
-                    <tr>
-                        <td width="30px">
-                        </td>
-                        <td>
-                            Nome
-                        </td>
-                        <td>
-                            Quant.
-                        </td>
-                        <td>
-                            Preço
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <script src="script.js"></script>
         </div>
     </section>
     <script>
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
         let searchBtn = document.querySelector(".bx-search");
-    
+
         closeBtn.addEventListener("click", () => {
-          sidebar.classList.toggle("open");
-          menuBtnChange();//calling the function(optional)
+            sidebar.classList.toggle("open");
+            menuBtnChange();//calling the function(optional)
         });
-    
+
         searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
-          sidebar.classList.toggle("open");
-          menuBtnChange(); //calling the function(optional)
+            sidebar.classList.toggle("open");
+            menuBtnChange(); //calling the function(optional)
         });
-    
+
         // following are the code to change sidebar button(optional)
         function menuBtnChange() {
-          if (sidebar.classList.contains("open")) {
-            closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-          } else {
-            closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
-          }
+            if (sidebar.classList.contains("open")) {
+                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+            } else {
+                closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+            }
         }
-      </script>
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,86 @@
+* {
+    color: #FFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(#040106, #452c49);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 540px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
+}
+
+.profile-img {
+    width: 150px;
+    border-radius: 50%;
+    border: #070507 5px solid;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform: translateY(-50px);
+}
+
+.container-text {
+    margin-top: -40px;
+}
+
+h1.name {
+    margin: 1vw;
+    text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h3.desc {
+    margin: 1vw;
+    font-weight: 400;
+    text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.address-icon {
+    width: 24px;
+    filter: brightness(15);
+}
+
+.socials {
+    margin: 30px 0;
+}
+
+.socials a {
+    margin-right: 40px;
+}
+
+.socials a:last-child {
+    margin-right: 0;
+}
+
+.socials img {
+    width: 48px;
+    transition: all .3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 50%;
+}
+
+.socials img:hover {
+    transform: scale(110%);
+}
+
+.socials img:active {
+    transform: scale(103%);
+}
