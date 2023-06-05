@@ -10,7 +10,7 @@
 body{
     background-color: #2d3846;
     background-image: url(/The-Cargos/static/images/background-logo.png);
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
     overflow: hidden;
 }
@@ -65,6 +65,11 @@ main section .btn-box{
     display: flex;
     gap: 20px;
 }
+
+.btn-text {
+    align-items: center;
+}
+
 .btn-box .btn{
     padding: 20px 45px;
     background: #425265;
