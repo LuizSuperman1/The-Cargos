@@ -84,3 +84,11 @@ h3.desc {
 .socials img:active {
     transform: scale(103%);
 }
+
+.links_name {
+    color: black;
+}
+
+.tooltip {
+    color: black;
+}

@@ -9,7 +9,7 @@
 }
 body{
     background-color: #2d3846;
-    background-image: url(/The-Cargos/static/images/background-logo.png);
+    background-image: url(/static/images/background-logo.png);
     background-size: auto;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -38,7 +38,6 @@ header{
 .navigation ul li a:hover{
     border-bottom: 2px solid #138ecc;
 }
-
 
 /*Main*/
 
@@ -87,17 +86,17 @@ main section .btn-box{
     
 }
 main section .text{
-    position: justify;
+    position: relative;
     bottom: 200px;
     color: #fff;
     line-height: 22px;
    
 }
 main section .text2{
-    position: justify;
+    position: relative;
     bottom: 163px;
     color: #fff;
-    margin-bottom: 5vh;
+    margin-bottom: 13vh;
    
 }
 .btn-box2{
