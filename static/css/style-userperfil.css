@@ -1,0 +1,14 @@
+form {
+    margin: 40px;
+    display: table;
+    justify-content: center;
+}
+
+form input {
+    max-height: 20px;
+    margin-top: 20px;
+}
+
+form label {
+    margin: 20px;
+}

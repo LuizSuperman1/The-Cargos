@@ -1,0 +1,38 @@
+.container-body {
+    align-items: center;
+}
+
+.container-text {
+    text-align: center;
+}
+
+.body-img {
+    align-items: center;
+}
+
+.body-img img {
+    max-width: 35vw;
+    margin: 30px;
+    margin-top: 70px;
+}
+
+.body-title {
+    font-family: sans-serif;
+    font-size: 20px;
+    margin: 40px;
+    text-decoration: underline;
+    font-size: x-large;
+}
+
+.body-text {
+    font-size: x-large;
+}
+
+.body-text p {
+    margin: 15px;
+}
+
+.body-text h2 {
+    color: #00afdf;
+    text-decoration: underline;
+}
