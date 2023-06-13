@@ -1,4 +1,23 @@
-.catalogo {
+.container-header {
+    margin: 0 50px;
+    margin-top: 50px;
     display: flex;
-    position: absolute;
+    justify-content: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+}
+
+.calcas {
+    margin: 20px;
+}
+
+.bermudas {
+    margin: 20px;
+}
+
+.search-bar {
+    width: 70vw;
 }
