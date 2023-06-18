@@ -31,3 +31,10 @@
     text-decoration: none;
     color: black;
 }
+
+.container-body {
+    margin-top: 5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    max-width: 80vw;
+}
