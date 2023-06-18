@@ -143,6 +143,7 @@
   text-decoration: none;
   transition: all 0.4s ease;
   background: #11101D;
+  flex-direction: column;
 }
 .sidebar li a:hover{
   background: #FFF;
@@ -164,6 +165,13 @@
 .sidebar li a:hover i{
   transition: all 0.5s ease;
   color: #11101D;
+}
+.sidebar li a:hover i.bx-log-out {
+  color: #fff;
+}
+.sidebar li a.link-back {
+  width: 0px;
+  background-color: #1d1b31;
 }
 .sidebar li i{
   height: 50px;
