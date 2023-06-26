@@ -32,6 +32,13 @@
     color: black;
 }
 
+.lists-link:hover {
+    padding: 1px;
+    background-color: #00afdf;
+    border: 1px solid black;
+    opacity: 1;
+}
+
 .container-body {
     margin-top: 5vh;
     margin-left: 10vw;
