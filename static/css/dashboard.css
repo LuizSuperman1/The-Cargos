@@ -318,8 +318,17 @@ color: #E4E9F7;
 .wrapper .box i {
 
 color: #E4E9F7;
-
+font-size: 55px;
+padding: 20px;
+  
 }
+
+.wrapper .box a{
+
+  font-size: 15pt;
+  color: #E4E9F7;
+  
+  }
 
 
 
