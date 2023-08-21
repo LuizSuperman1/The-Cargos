@@ -54,7 +54,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr data-product-id="1">
+                      <!-- Conteúdo da primeira linha do carrinho -->                
                       <td>
                         <div class="product">
                           <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/002/564/263/products/a68223d7-ecfb-4ceb-9290-c48070cd169e1-bc9e3fa832a2710a4016824278180966-640-0.jpeg" height="120" width="100"/>
@@ -64,20 +65,21 @@
                           </div>
                         </div>
                       </td>
-                      <td>R$ 134,99</td>
+                      <td class="price">R$ 134.99</td>
                       <td>
                         <div class="qty">
                           <button><i class="bx bx-minus"></i></button>
-                          <span>2</span>
+                          <span>1</span>
                           <button><i class="bx bx-plus"></i></button>
                         </div>
                       </td>
-                      <td>R$ 269,98</td>
+                      <td class="total-price">R$ 134.99</td>
                       <td>
                         <button class="remove"><i class="bx bx-x"></i></button>
                       </td>
                     </tr>
-                    <tr>
+                    <tr data-product-id="2">
+                      <!-- Conteúdo da segunda linha do carrinho -->>
                       <td>
                         <div class="product">
                           <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/002/564/263/products/calca-cargo-tactel-nova-capa1-2135ccd55e6a565b2716744687824722-640-0.jpg" height="120" width="100" />
@@ -87,20 +89,21 @@
                           </div>
                         </div>
                       </td>
-                      <td>R$ 139,99</td>
+                      <td class="price">R$ 139.99</td>
                       <td>
                         <div class="qty">
                           <button><i class="bx bx-minus"></i></button>
-                          <span>2</span>
+                          <span>1</span>
                           <button><i class="bx bx-plus"></i></button>
                         </div>
                       </td>
-                      <td>R$ 279,98</td>
+                      <td class="total-price">R$ 139.99</td>
                       <td>
                         <button class="remove"><i class="bx bx-x"></i></button>
                       </td>
                     </tr>
-                    <tr>
+                    <tr data-product-id="3">
+                      <!-- Conteúdo da terceira linha do carrinho -->>
                       <td>
                         <div class="product">
                           <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/002/564/263/products/cargo-lisa-preta-capa1-3be270f0d9ea126a2216731961164861-640-0.jpg" height="120" width="100" />
@@ -110,19 +113,90 @@
                           </div>
                         </div>
                       </td>
-                      <td>R$ 129,99</td>
+                      <td class="price">R$ 129.99</td>
                       <td>
                         <div class="qty">
                           <button><i class="bx bx-minus"></i></button>
-                          <span>2</span>
+                          <span>1</span>
                           <button><i class="bx bx-plus"></i></button>
                         </div>
                       </td>
-                      <td>R$ 259,98</td>
+                      <td class="total-price">R$ 129.99</td>
                       <td>
                         <button class="remove"><i class="bx bx-x"></i></button>
                       </td>
                     </tr>
+
+                    <!-- código de adicionar/remover/excluir a quantidade de produtos junto com a soma -->
+
+          <script>
+                      document.addEventListener("DOMContentLoaded", function() {
+                      const cartRows = document.querySelectorAll("tr[data-product-id]");
+                      const subTotalElement = document.querySelector(".total-items"); // Sub-total
+                      const grandTotalElement = document.querySelector(".grand-total"); // Total
+
+                    function updateCartTotal() {
+                    let subTotal = 0;
+
+                   cartRows.forEach(row => {
+                      const qtyCell = row.querySelector(".qty span");
+                      const priceCell = row.querySelector(".price");
+
+                      const qty = parseInt(qtyCell.textContent);
+                      const price = parseFloat(priceCell.textContent.replace("R$ ", ""));
+                      const total = price * qty;
+
+                      if (!row.classList.contains("removed")) {
+                      subTotal += total;
+                    }
+                   });
+
+                        subTotalElement.textContent = `R$ ${subTotal.toFixed(2)}`; // Atualizar sub-total
+                      grandTotalElement.textContent = `R$ ${subTotal.toFixed(2)}`; // Atualizar total
+                    }
+
+                     function addQuantity(row) {
+                     const qtyCell = row.querySelector(".qty span");
+                      const qty = parseInt(qtyCell.textContent);
+                      qtyCell.textContent = qty + 1;
+                       updateCartTotal();
+                     }
+
+                       function removeQuantity(row) {
+                       const qtyCell = row.querySelector(".qty span");
+                       const qty = parseInt(qtyCell.textContent);
+                         if (qty > 1) {
+                          qtyCell.textContent = qty - 1;
+                         updateCartTotal();
+                     }
+                   }
+
+                      function removeProduct(row) {
+                     row.classList.add("removed"); // Marcar a linha como "removed"
+                      row.style.display = "none"; // Esconder a linha da tabela
+                     updateCartTotal();
+                     }
+
+                    cartRows.forEach(row => {
+                      const addButton = row.querySelector(".qty .bx-plus");
+                     const removeButton = row.querySelector(".qty .bx-minus");
+                    const deleteButton = row.querySelector(".remove");
+
+                  addButton.addEventListener("click", () => addQuantity(row));
+                  removeButton.addEventListener("click", () => removeQuantity(row));
+                   deleteButton.addEventListener("click", () => removeProduct(row));
+
+                 // Atualize o total de cada linha
+                 updateCartTotal();
+                 });
+
+                   // Atualize o total do carrinho após carregar a página
+                   updateCartTotal();
+                    });
+        </script>
+                       
+                   
+
                   </tbody>
                 </table>
               </section>
@@ -130,7 +204,7 @@
                 <div class="box">
                   <header>Resumo da compra</header>
                   <div class="info">
-                    <div><span>Sub-total</span><span>R$ 809,94</span></div>
+                    <div><span>Sub-total</span><span class="total-items">R$ 0.00</span></div>
                     <div><span>Frete</span><span>Gratuito</span></div>
                     <div>
                       <button>
@@ -141,9 +215,9 @@
                   </div>
                   <footer>
                     <span>Total</span>
-                    <span>R$ 809,94</span>
-                  </footer>
-                </div>
+                  <span class="grand-total">R$ 0.00</span>
+                    </footer>
+                  </div>
                 <button>Finalizar Compra</button>
               </aside>
             </div>
