@@ -239,3 +239,22 @@ aside > button:hover {
   background: #3bc55b;
 }
 /*# sourceMappingURL=styles.css.map */
+
+/* Css do balão do cupom de desconto */
+
+.coupon-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.coupon-container.active .coupon-popup {
+  display: block;
+}
