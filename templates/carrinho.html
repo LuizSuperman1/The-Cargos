@@ -196,6 +196,57 @@
                    // Atualize o total do carrinho após carregar a página
                    updateCartTotal();
                     });
+
+                    // Abaixo é o código do cupom de desconto
+
+                    document.addEventListener("DOMContentLoaded", function() {
+  const cartRows = document.querySelectorAll("tr[data-product-id]");
+  const totalItemsElement = document.querySelector(".total-items");
+  const grandTotalElement = document.querySelector(".grand-total");
+  const discountElement = document.querySelector(".discount");
+  const applyCouponButton = document.getElementById("apply-coupon");
+
+  let couponApplied = false;
+  let originalGrandTotal = 0;
+
+  applyCouponButton.addEventListener("click", function() {
+    if (!couponApplied) {
+      const couponCode = document.getElementById("coupon-code").value;
+
+      if (couponCode === "DESCONTO10") {
+        originalGrandTotal = parseFloat(grandTotalElement.textContent.replace("R$ ", ""));
+        const discountAmount = originalGrandTotal * 0.10;
+        const newGrandTotal = originalGrandTotal - discountAmount;
+
+        grandTotalElement.textContent = `R$ ${newGrandTotal.toFixed(2)}`;
+        discountElement.textContent = `-R$ ${discountAmount.toFixed(2)}`;
+        couponApplied = true;
+      }
+    }
+  });
+
+});
+
+// Código do balão
+
+document.addEventListener("DOMContentLoaded", function() {
+  const couponContainer = document.querySelector(".coupon-container");
+  const addCouponButton = document.getElementById("add-coupon");
+  const applyCouponButton = document.getElementById("apply-coupon");
+  const couponPopup = document.querySelector(".coupon-popup");
+
+  addCouponButton.addEventListener("click", function() {
+    couponContainer.classList.toggle("active");
+  });
+
+  applyCouponButton.addEventListener("click", function() {
+    // Lógica para aplicar o cupom de desconto
+    // implementar a lógica para aplicar o desconto ao total
+    // e atualizar os valores no resumo de compras
+    couponContainer.classList.remove("active");
+  });
+
+});
         </script>
                        
                    
@@ -209,6 +260,17 @@
                   <div class="info">
                     <div><span>Sub-total</span><span class="total-items">R$ 0.00</span></div>
                     <div><span>Frete</span><span>Gratuito</span></div>
+                    <div><span>Desconto</span><span class="discount">R$ 00.00</span></div>
+                    <div class="coupon-container">
+                      <button id="add-coupon" class="coupon-button">
+                        Adicionar cupom de desconto
+                        <i class="bx bx-right-arrow-alt"></i>
+                      </button>
+                      <div class="coupon-popup">
+                        <input type="text" id="coupon-code" placeholder="Insira o cupom">
+                        <button id="apply-coupon">Aplicar</button>
+                      </div>
+                    </div>
                     <div>
                       <button>
                         Adicionar cupom de desconto
