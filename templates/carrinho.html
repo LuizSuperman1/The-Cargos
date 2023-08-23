@@ -132,122 +132,142 @@
 
                     <!-- código de adicionar/remover/excluir a quantidade de produtos junto com a soma -->
 
-          <script>
+                    <script>
                       document.addEventListener("DOMContentLoaded", function() {
-                      const cartRows = document.querySelectorAll("tr[data-product-id]");
-                      const subTotalElement = document.querySelector(".total-items"); // Sub-total
-                      const grandTotalElement = document.querySelector(".grand-total"); // Total
-
-                    function updateCartTotal() {
-                    let subTotal = 0;
-
-                   cartRows.forEach(row => {
-                      const qtyCell = row.querySelector(".qty span");
-                      const priceCell = row.querySelector(".price");
-
-                      const qty = parseInt(qtyCell.textContent);
-                      const price = parseFloat(priceCell.textContent.replace("R$ ", ""));
-                      const total = price * qty;
-
-                      if (!row.classList.contains("removed")) {
-                      subTotal += total;
-                    }
-                   });
-
-                        subTotalElement.textContent = `R$ ${subTotal.toFixed(2)}`; // Atualizar sub-total
-                      grandTotalElement.textContent = `R$ ${subTotal.toFixed(2)}`; // Atualizar total
-                    }
-
-                     function addQuantity(row) {
-                     const qtyCell = row.querySelector(".qty span");
-                      const qty = parseInt(qtyCell.textContent);
-                      qtyCell.textContent = qty + 1;
-                       updateCartTotal();
-                     }
-
-                       function removeQuantity(row) {
-                       const qtyCell = row.querySelector(".qty span");
-                       const qty = parseInt(qtyCell.textContent);
-                         if (qty > 1) {
-                          qtyCell.textContent = qty - 1;
-                         updateCartTotal();
-                     }
-                   }
-
-                      function removeProduct(row) {
-                     row.classList.add("removed"); // Marcar a linha como "removed"
-                      row.style.display = "none"; // Esconder a linha da tabela
-                     updateCartTotal();
-                     }
-
-                    cartRows.forEach(row => {
-                      const addButton = row.querySelector(".qty .bx-plus");
-                     const removeButton = row.querySelector(".qty .bx-minus");
-                    const deleteButton = row.querySelector(".remove");
-
-                  addButton.addEventListener("click", () => addQuantity(row));
-                  removeButton.addEventListener("click", () => removeQuantity(row));
-                   deleteButton.addEventListener("click", () => removeProduct(row));
-
-                 // Atualize o total de cada linha
-                 updateCartTotal();
-                 });
-
-                   // Atualize o total do carrinho após carregar a página
-                   updateCartTotal();
-                    });
-
-                    // Abaixo é o código do cupom de desconto
-
-                    document.addEventListener("DOMContentLoaded", function() {
-  const cartRows = document.querySelectorAll("tr[data-product-id]");
-  const totalItemsElement = document.querySelector(".total-items");
-  const grandTotalElement = document.querySelector(".grand-total");
-  const discountElement = document.querySelector(".discount");
-  const applyCouponButton = document.getElementById("apply-coupon");
-
-  let couponApplied = false;
-  let originalGrandTotal = 0;
-
-  applyCouponButton.addEventListener("click", function() {
-    if (!couponApplied) {
-      const couponCode = document.getElementById("coupon-code").value;
-
-      if (couponCode === "DESCONTO10") {
-        originalGrandTotal = parseFloat(grandTotalElement.textContent.replace("R$ ", ""));
-        const discountAmount = originalGrandTotal * 0.10;
-        const newGrandTotal = originalGrandTotal - discountAmount;
-
-        grandTotalElement.textContent = `R$ ${newGrandTotal.toFixed(2)}`;
-        discountElement.textContent = `-R$ ${discountAmount.toFixed(2)}`;
-        couponApplied = true;
-      }
-    }
-  });
-
-});
-
-// Código do balão
-
-document.addEventListener("DOMContentLoaded", function() {
-  const couponContainer = document.querySelector(".coupon-container");
-  const addCouponButton = document.getElementById("add-coupon");
-  const applyCouponButton = document.getElementById("apply-coupon");
-  const couponPopup = document.querySelector(".coupon-popup");
-
-  addCouponButton.addEventListener("click", function() {
-    couponContainer.classList.toggle("active");
-  });
-
-  applyCouponButton.addEventListener("click", function() {
-    // Lógica para aplicar o cupom de desconto
-    // implementar a lógica para aplicar o desconto ao total
-    // e atualizar os valores no resumo de compras
-    couponContainer.classList.remove("active");
-  });
-
-});
-        </script>
+                          const cartRows = document.querySelectorAll("tr[data-product-id]");
+                          const subTotalElement = document.querySelector(".total-items"); // Sub-total
+                          const grandTotalElement = document.querySelector(".grand-total"); // Total
+                          const discountElement = document.querySelector(".discount");
+                          const applyCouponButton = document.getElementById("apply-coupon");
+                          const couponContainer = document.querySelector(".coupon-container");
+                          const addCouponButton = document.getElementById("add-coupon");
+                          const couponPopup = document.querySelector(".coupon-popup");
+                          const errorMessage = document.querySelector(".error-message"); // Selecionar a mensagem de erro
+                          const successMessage = document.querySelector(".success-message"); // Selecionar a mensagem de sucesso
+                      
+                          let couponApplied = false;
+                          let originalSubTotal = 0;
+                      
+                          // Atualiza o subtotal, total e desconto
+                          function updateCartTotal() {
+                              let subTotal = 0;
+                      
+                              cartRows.forEach(row => {
+                                  const qtyCell = row.querySelector(".qty span");
+                                  const priceCell = row.querySelector(".price");
+                      
+                                  const qty = parseInt(qtyCell.textContent);
+                                  const price = parseFloat(priceCell.textContent.replace("R$ ", ""));
+                                  const total = price * qty;
+                      
+                                  if (!row.classList.contains("removed")) {
+                                      subTotal += total;
+                                  }
+                              });
+                      
+                              subTotalElement.textContent = `R$ ${subTotal.toFixed(2)}`; // Atualizar sub-total
+                      
+                              if (couponApplied) {
+                                  const discountAmount = originalSubTotal * 0.10;
+                                  const newSubTotal = subTotal - discountAmount;
+                                  const newGrandTotal = newSubTotal;
+                      
+                                  grandTotalElement.textContent = `R$ ${newGrandTotal.toFixed(2)}`;
+                                  discountElement.textContent = `-R$ ${discountAmount.toFixed(2)}`;
+                              } else {
+                                  grandTotalElement.textContent = `R$ ${subTotal.toFixed(2)}`;
+                                  discountElement.textContent = `-R$ 0.00`;
+                              }
+                          }
+                      
+                          // Aplica o cupom de desconto
+                          function applyCoupon() {
+                              const couponCodeInput = document.getElementById("coupon-code");
+                              const couponCode = couponCodeInput.value.trim();
+                      
+                              // Verifica se o cupom é válido (por exemplo, verificar em um array de códigos válidos)
+                              const validCouponCodes = ["DESCONTO10", "CUPOM20"]; // Exemplo de códigos válidos
+                      
+                              if (validCouponCodes.includes(couponCode)) {
+                                  if (!couponApplied) {
+                                      originalSubTotal = parseFloat(subTotalElement.textContent.replace("R$ ", ""));
+                                      const discountAmount = originalSubTotal * 0.10;
+                                      const newSubTotal = originalSubTotal - discountAmount;
+                                      const newGrandTotal = newSubTotal;
+                      
+                                      grandTotalElement.textContent = `R$ ${newGrandTotal.toFixed(2)}`;
+                                      discountElement.textContent = `-R$ ${discountAmount.toFixed(2)}`;
+                                      couponApplied = true;
+                                      successMessage.style.display = "block"; // Exibir a mensagem de sucesso
+                                      errorMessage.style.display = "none"; // Esconder a mensagem de erro
+                                  }
+                              } else {
+                                  errorMessage.style.display = "block"; // Exibir a mensagem de erro
+                                  successMessage.style.display = "none"; // Esconder a mensagem de sucesso
+                              }
+                          }
+                      
+                          // Limpa o cupom de desconto
+                          function clearCoupon() {
+                              couponApplied = false;
+                              updateCartTotal();
+                              successMessage.style.display = "none"; // Esconder a mensagem de sucesso
+                              errorMessage.style.display = "none"; // Esconder a mensagem de erro
+                          }
+                      
+                          // Atualiza o total do carrinho ao carregar a página
+                          updateCartTotal();
+                      
+                          // Event listener para adicionar/remover/excluir quantidade de produtos
+                          cartRows.forEach(row => {
+                              const addButton = row.querySelector(".qty .bx-plus");
+                              const removeButton = row.querySelector(".qty .bx-minus");
+                              const deleteButton = row.querySelector(".remove");
+                      
+                              addButton.addEventListener("click", () => addQuantity(row));
+                              removeButton.addEventListener("click", () => removeQuantity(row));
+                              deleteButton.addEventListener("click", () => {
+                                  removeProduct(row);
+                                  clearCoupon(); // Limpa o cupom ao remover um produto
+                              });
+                          });
+                      
+                          // Event listener para aplicar o cupom de desconto
+                          applyCouponButton.addEventListener("click", applyCoupon);
+                      
+                          // Event listener para mostrar/ocultar o container de cupom de desconto
+                          addCouponButton.addEventListener("click", function() {
+                              couponContainer.classList.toggle("active");
+                          });
+                      
+                          // Função para adicionar quantidade de produtos
+                          function addQuantity(row) {
+                              const qtyCell = row.querySelector(".qty span");
+                              const qty = parseInt(qtyCell.textContent);
+                              qtyCell.textContent = qty + 1;
+                              updateCartTotal();
+                              clearCoupon(); // Limpa o cupom ao modificar a quantidade
+                          }
+                      
+                          // Função para remover quantidade de produtos
+                          function removeQuantity(row) {
+                              const qtyCell = row.querySelector(".qty span");
+                              const qty = parseInt(qtyCell.textContent);
+                              if (qty > 1) {
+                                  qtyCell.textContent = qty - 1;
+                                  updateCartTotal();
+                                  clearCoupon(); // Limpa o cupom ao modificar a quantidade
+                              }
+                          }
+                      
+                          // Função para remover produto do carrinho
+                          function removeProduct(row) {
+                              row.classList.add("removed");
+                              row.style.display = "none";
+                              updateCartTotal();
+                          }
+                      });
+                      </script>
                        
                    
 
@@ -269,13 +289,9 @@ document.addEventListener("DOMContentLoaded", function() {
                       <div class="coupon-popup">
                         <input type="text" id="coupon-code" placeholder="Insira o cupom">
                         <button id="apply-coupon">Aplicar</button>
+                        <p class="error-message">Cupom inválido. Verifique o código e tente novamente.</p> 
+                        <p class="success-message">Cupom aplicado com sucesso!</p>
                       </div>
-                    </div>
-                    <div>
-                      <button>
-                        Adicionar cupom de desconto
-                        <i class="bx bx-right-arrow-alt"></i>
-                      </button>
                     </div>
                   </div>
                   <footer>
