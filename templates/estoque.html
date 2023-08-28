@@ -115,9 +115,10 @@
         </label>
         <span id="imageAttached" style="display:none;"><i class='bx bx-paperclip'></i></span>
     </footer>
+    <img id="editProductImage" src="" alt="Produto" class="img" />
 </div>
 <button id="addProductButton">Adicionar Produto</button>
-<button>Salvar Edição</button>
+<button id="saveEditButton">Salvar Edição</button>
                 </aside>
             </div>
         </main>
@@ -324,6 +325,76 @@ function addProductEvents(row) {
         imageInput.value = "";
         addImageSpan.style.display = "inline";
         imageAttached.style.display = "none";
+    }
+});
+
+    // Captura os elementos de edição
+const editProductName = document.getElementById("editProductName");
+const editProductPrice = document.getElementById("editProductPrice");
+const editProductQuantity = document.getElementById("editProductQuantity");
+
+// Captura o botão "Salvar Edição"
+const saveEditButton = document.getElementById("saveEditButton");
+
+// Variável para armazenar o índice do produto sendo editado
+let editingProductIndex = -1;
+
+// Evento de clique no botão "Editar Produto"
+function editProduct(button) {
+    // Encontre a linha (tr) que contém o botão clicado
+    const row = button.closest('tr');
+
+    // Encontre o índice da linha (subtraindo 1 porque as linhas são baseadas em 0)
+    editingProductIndex = row.rowIndex - 1;
+
+    // Encontre os elementos dentro da linha
+    const productName = row.querySelector('.name').textContent;
+    const productPrice = row.querySelector('.price').textContent;
+    const productQuantity = row.querySelector('.qty span').textContent;
+    const productImg = row.querySelector('.img');
+    const productImageURL = productImg.src; // Obtém a URL da imagem atual
+    document.getElementById("editProductImage").src = productImageURL;
+
+    // Preencha os campos de edição com as informações do produto
+    editProductName.value = productName;
+    editProductPrice.value = productPrice;
+    editProductQuantity.value = productQuantity;
+}
+
+// Evento de clique no botão "Salvar Edição"
+saveEditButton.addEventListener('click', () => {
+    if (editingProductIndex !== -1) {
+        // Captura a nova imagem selecionada
+        const newImageFile = imageInput.files[0];
+        // Atualiza as informações na tabela com os valores editados
+        const productName = editProductName.value;
+        const productPrice = editProductPrice.value;
+        const productQuantity = editProductQuantity.value;
+
+         // Atualiza a imagem na tabela apenas se uma nova imagem foi selecionada
+         if (newImageFile) {
+            const editedRow = document.querySelector(`tbody tr:nth-child(${editingProductIndex + 1})`);
+            const editedImage = editedRow.querySelector('.img');
+            editedImage.src = URL.createObjectURL(newImageFile);
+        }
+
+        // Atualiza as informações na linha correspondente
+        const editedRow = document.querySelector(`tbody tr:nth-child(${editingProductIndex + 1})`);
+        editedRow.querySelector('.name').textContent = productName;
+        editedRow.querySelector('.price').textContent = productPrice;
+        editedRow.querySelector('.qty span').textContent = productQuantity;
+
+        // Limpa os campos de edição e imagem
+        editProductName.value = '';
+        editProductPrice.value = 'R$ ';
+        editProductQuantity.value = '';
+        imageInput.value = '';
+        document.getElementById("editProductImage").src = '';
+        addImageSpan.style.display = "inline";
+        imageAttached.style.display = "none";
+
+        // Reinicializa o índice de edição
+        editingProductIndex = -1;
     }
 });
     </script>
