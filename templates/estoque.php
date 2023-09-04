@@ -1,11 +1,16 @@
+<?php
+
+include("../static/php/protect.php");
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="\The-Cargos\static\css\style-sidebar.css">
+    <link rel="stylesheet" href="..\static\css\style-sidebar.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/The-Cargos/static/css/style-estoque.css">
+    <link rel="stylesheet" href="../static/css/style-estoque.css">
     <title>Estoque</title>
 </head>
 <body>
@@ -17,21 +22,21 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Painel inicial</span>
                 </a>
                 <span class="tooltip">Painel inicial</span>
             </li>
             <li>
-                <a href="ped.html">
+                <a href="ped.php">
                     <i class='bx bx-package'></i>
                     <span class="links_name">Pedidos</span>
                 </a>
                 <span class="tooltip">Pedidos</span>
             </li>
             <li>
-                <a href="estoque.html">
+                <a href="estoque.php">
                     <i class='bx bxl-dropbox'></i>
                     <span class="links_name">Estoque</span>
                 </a>
@@ -72,7 +77,7 @@
                             <tr>
                                 <td>
                                     <div class="product">
-                                        <img src="/The-Cargos/static/images/calca.jpg" alt class="img" />
+                                        <img src="../static/images/calca.jpg" alt class="img" />
                                         <div class="info">
                                             <div class="name">Lisa Pink</div>
                                         </div>
