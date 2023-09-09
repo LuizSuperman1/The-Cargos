@@ -15,20 +15,20 @@
 <body>
     <header>
         <nav>
-            <a class="logo" href="../templates/catalogo.html">TheCargos</a>
+            <a class="logo" href="../templates/catalogo.php">TheCargos</a>
             <div class="mobile-menu">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
             </div>
             <ul class="nav-list">
-                <li><a class="link-navbar" href="../templates/catalogo.html">Início</a></li>
-                <li><a class="link-navbar" href="../templates/produtos.html">Produtos</a></li>
-                <li><a class="link-navbar" href="../templates/trocas.html">Trocas e Devoluções</a></li>
-                <li><a class="link-navbar" href="../templates/guia-medidas.html">Guia de Medidas</a></li>
+                <li><a class="link-navbar" href="../templates/catalogo.php">Início</a></li>
+                <li><a class="link-navbar" href="../templates/produtos.php">Produtos</a></li>
+                <li><a class="link-navbar" href="../templates/trocas.php">Trocas e Devoluções</a></li>
+                <li><a class="link-navbar" href="../templates/guia-medidas.php">Guia de Medidas</a></li>
             </ul>
             <ul class="nav-list">
-                <li><a class="link-navbar" href="../templates/carrinho.html">Carrinho</a></li>
+                <li><a class="link-navbar" href="../templates/carrinho.php">Carrinho</a></li>
                 <li class="dropdown">
                     <a class="link-navbar" href="#">Minha Conta</a>
                     <div class="dropdown-menu">
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="container-footer">
-            <h1><a href="produtos.html">Veja mais!!</a></h1>
+            <h1><a href="produtos.php">Veja mais!!</a></h1>
         </div>
 
 
@@ -131,7 +131,7 @@
             </div>
         </div>
         <div class="container-footer">
-            <h1><a href="produtos.html">Veja mais!!</a></h1>
+            <h1><a href="produtos.php">Veja mais!!</a></h1>
         </div>
 
 

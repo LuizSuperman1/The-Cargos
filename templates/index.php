@@ -31,7 +31,7 @@
             </div>-->
             <div class="text">
                 <h3>CONHEÇA NOSSO SITE!!</h3>
-                <a href="catalogo.html" class="btn-link">NAVEGUE POR NOSSO CATÁLOGO</a>
+                <a href="catalogo.php" class="btn-link">NAVEGUE POR NOSSO CATÁLOGO</a>
             </div>
         </section>
     </main>
