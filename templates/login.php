@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style-catalogo.css">
+    <link rel="stylesheet" href="../static/css/style-login.css">
 
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
 
@@ -41,7 +42,24 @@
     </header>
     <main>
 
+    <aside>
+            <h2 class="welcome">Seja bem-vindo à</h2>
+            <h2 class="welcome"><span>The Cargos!!</span></h2>
+            <form action="" method="POST">
 
+                <input type="text" placeholder="Usuário" name="user">
+                <input type="text" placeholder="Senha" name="senha">
+                <input id="btn-login" type="submit" value="Entrar">
+
+            </form>
+
+        </aside>
+
+        <article>
+
+            <img src="..\static\images\ascalcas.png" alt="as-calcas">
+
+        </article>
 
     </main>
     <footer>
