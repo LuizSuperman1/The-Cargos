@@ -32,8 +32,8 @@
                 <li class="dropdown">
                     <a class="link-navbar" href="#">Minha Conta</a>
                     <div class="dropdown-menu">
-                        <a href="">Criar uma conta</a>
-                        <a href="">Iniciar sessão</a>
+                        <a href="../templates/cadastro.php">Criar uma conta</a>
+                        <a href="../templates/login.php">Iniciar sessão</a>
                     </div>
                 </li>
             </ul>

@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style-catalogo.css">
-    <link rel="stylesheet" href="../static/css/style-userperfil.css">
 
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
-    <title>Perfil</title>
+
+    <title>Catálogo</title>
 </head>
 
 <body>
@@ -39,39 +39,33 @@
             </ul>
         </nav>
     </header>
-
     <main>
-        
-    </main>
 
+
+
+    </main>
     <footer>
         <div class="container-conectado">
             <h2>Mantenha-se conectado:</h2>
             <div class="div-contato">
-                <a href="https://www.instagram.com/the_cargos/">
-                    <box-icon type="logo" color="white" size="md" name="instagram-alt"></box-icon>
-                </a>
+                <a href="https://www.instagram.com/the_cargos/"><box-icon type="logo" color="white" size="md"
+                        name="instagram-alt"></box-icon></a>
                 <p>@the_cargos</p>
             </div>
             <div class="div-contato">
-                <a href="https://www.tiktok.com/@the_cargos?_t=8d5eBefuMGz&_r=1">
-                    <box-icon type="logo" color="white" size="md" name="tiktok"></box-icon>
-                </a>
+                <a href="https://www.tiktok.com/@the_cargos?_t=8d5eBefuMGz&_r=1"><box-icon type="logo" color="white"
+                        size="md" name="tiktok"></box-icon></a>
                 <p>@the_cargos</p>
             </div>
         </div>
         <div class="container-contato">
             <h2>Contato:</h2>
             <div class="div-contato">
-                <a href="tel:11 94561-4648">
-                    <box-icon type='solid' color="white" size="md" name='phone'></box-icon>
-                </a>
+                <a href="tel:11 94561-4648"><box-icon type='solid' color="white" size="md" name='phone'></box-icon></a>
                 <p>11 94561-4648</p>
             </div>
             <div class="div-contato">
-                <a href="thecargos.anywhere@gmail.com">
-                    <box-icon color="white" size="md" name='envelope'></box-icon>
-                </a>
+                <a href="thecargos.anywhere@gmail.com"><box-icon color="white" size="md" name='envelope'></box-icon></a>
                 <p>thecargos.anywhere@gmail.com</p>
             </div>
 
