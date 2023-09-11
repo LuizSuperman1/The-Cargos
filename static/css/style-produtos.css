@@ -1,0 +1,47 @@
+.container-header {
+    margin: 0 50px;
+    margin-top: 50px;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+}
+
+.calcas {
+    margin: 20px 10vw;
+    font-weight: 900;
+    font-size: large;
+}
+
+.bermudas {
+    margin: 20px 10vw;
+    font-weight: 900;
+    font-size: large;
+}
+
+.search-bar {
+    width: 40vw;
+}
+
+.lists-link {
+    text-decoration: none;
+    color: black;
+}
+
+.lists-link:hover {
+    padding: 1px;
+    background-color: #00afdf;
+    border: 1px solid black;
+    opacity: 1;
+}
+
+.container-body {
+    margin-top: 5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    max-width: 80vw;
+}

@@ -1,0 +1,27 @@
+.main-title {
+    background: #8e44ad;
+    color: white;
+    font-size: 35px;
+    margin: 50px 30px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+}
+
+main {
+    padding: 0 30px;
+}
+
+.content {
+    display: flex;
+}
+
+.content section {
+    flex: 1;
+}
+
+.content aside {
+    background: red;
+    min-width: 250px;
+}
