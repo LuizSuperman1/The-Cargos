@@ -67,7 +67,7 @@
             <div class="container-body">
                 <div class="card">
                     <div class="card-header">
-                        <a href="#"><img class="card-img" src="../static/images/calca-tactel-cinza.jpeg"></a>
+                        <a href="../templates/cargo1.php"><img class="card-img" src="../static/images/calca-tactel-cinza.jpeg"></a>
                     </div>
                     <div class="card-body">
                         <h3 class="card-nome">Calça tactel cinza</h3>
