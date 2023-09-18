@@ -41,15 +41,24 @@
     </header>
 
     <main>
-        <div class="product-title">
-            <h1></h1>
-        </div>
         <div class="product-details">
             <div>
                 <img class="product-img" src="../static/images/calca-tactel-cinza.jpeg" alt="Calça tactel cinza">
             </div>
-            <div>
-                <p><h1 class="product-title">Calça tactel cinza</h1></p>
+            <div class="product-desc">
+                <h1 class="product-title">Calça tactel cinza</h1><br>
+                <p class="product-price">R$140</p>
+                <form action="POST">
+                    <select name="tamanho" id="tam">
+                        <optgroup>
+                            <option value="tam-p">P</option>
+                            <option value="tam-m">M</option>
+                            <option value="tam-g">G</option>
+                            <option value="tam-gg">GG</option>
+                        </optgroup>
+                    </select><br><br>
+                    <button type="submit">Comprar</button>
+                </form>
             </div>
         </div>
     </main>
