@@ -8,17 +8,19 @@ main {
     margin: auto;
     display: flex;
     align-items: center;
-    margin-left: 30vw;
-    margin-right: 30vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
 .product-desc {
+    text-align: center;
     background-color: #eee;
     margin-left: 4vw;
     font-size: 25px;
     border: 2px solid;
     height: 500px;
     padding: 40px;
+    max-width: fit-content;
 }
 
 .product-img {
@@ -30,7 +32,8 @@ main {
 
 .product-price {
     color: #00ccff;
-    font-size: large;
+    font-weight: bolder;
+    font-size: 30px;
 }
 
 .form-compra {
@@ -38,9 +41,14 @@ main {
 }
 
 .btn-buy {
-    padding: 5px;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
     background-color: #00ccff;
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 20px;
+}
 
+.btn-buy:hover {
 }

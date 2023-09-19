@@ -47,7 +47,12 @@
             </div>
             <div class="product-desc">
                 <h1 class="product-title">Calça tactel cinza</h1><br>
-                <p class="product-price">R$140</p>
+                <p>Se liga nas qualidades dessa raridade... <br>
+
+                    Além de exclusiva, essa cargo tem um dos melhores caimentos que temos na loja e de <br> fato um Tactel confortável e que ainda te deixa muitooo mais bonito... <br>
+                  
+                    A mais nova Tactel da loja, tem corte largo e se você <br> gosta de uma calça balão, vem nessa que é a pura❤️‍🔥</p><br>
+                <p class="product-price">R$124,50</p>
                 <form action="POST">
                     <select name="tamanho" id="tam">
                         <optgroup>
@@ -56,8 +61,8 @@
                             <option value="tam-g">G</option>
                             <option value="tam-gg">GG</option>
                         </optgroup>
-                    </select><br><br>
-                    <button type="submit">Comprar</button>
+                    </select><br><br><br>
+                    <button type="submit" class="btn-buy">Comprar</button>
                 </form>
             </div>
         </div>
