@@ -199,7 +199,7 @@ aside .box .info > div:last-child {
 }
 
 aside .box .info button {
-  color: #28a745;
+  color: #8e44ad;;
   background: transparent;
   border: 0;
   display: -webkit-box;
@@ -227,7 +227,7 @@ aside > button {
   border: 0;
   padding: 15px 0;
   color: white;
-  background: #28a745;
+  background: #8e44ad;;
   display: block;
   width: 100%;
   text-transform: uppercase;
@@ -292,13 +292,13 @@ aside > button:hover {
 
 #coupon-code:focus {
   outline: none;
-  border-color: #28a745; /* Mude a cor da borda quando a caixa estiver em foco */
+  border-color: rgb(0, 175, 223); /* Mude a cor da borda quando a caixa estiver em foco */
 }
 
 /* Estilos para o botão de aplicar cupom */
 #apply-coupon {
   padding: 8px 12px;
-  background-color: #28a745;
+  background-color: #8e44ad;;
   color: white;
   border: none;
   border-radius: 5px;
