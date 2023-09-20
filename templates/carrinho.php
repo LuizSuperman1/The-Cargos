@@ -273,6 +273,18 @@
                   updateCartTotal();
                 }
               });
+
+              document.addEventListener("DOMContentLoaded", function() {
+              // Adicionar um evento de clique ao botão de "Finalizar Compra" pelo ID
+              const finalizarCompraButton = document.getElementById("finalizar-compra-button");
+
+              if (finalizarCompraButton) {
+                finalizarCompraButton.addEventListener("click", function() {
+                  //Redirecionar para a tela de pagamento 
+                  window.location.href = "pagamento.html";
+                });
+              }
+            });
             </script>
 
 
