@@ -8,8 +8,6 @@ main {
     margin: auto;
     display: flex;
     align-items: center;
-    margin-left: 30vw;
-    margin-right: 30vw;
 }
 
 .product-desc {
@@ -19,9 +17,12 @@ main {
     border: 2px solid;
     height: 500px;
     padding: 40px;
+    text-align: center;
 }
 
 .product-img {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
     border-radius: 15px;
     height: 600px;
@@ -30,7 +31,9 @@ main {
 
 .product-price {
     color: #00ccff;
-    font-size: large;
+    font-weight: bolder;
+    font-size: xx-large;
+    margin: 15px;
 }
 
 .form-compra {
@@ -38,9 +41,20 @@ main {
 }
 
 .btn-buy {
-    padding: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: #00ccff;
     border: 1px solid;
     border-radius: 20px;
+    font-size: 20px;
+}
 
+.label-tamanho {
+    color: #8e44ad;
+    font-weight: bolder;
+}
+
+.select-tamanho {
+    font-size: 20px;
 }

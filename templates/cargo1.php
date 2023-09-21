@@ -46,10 +46,11 @@
                 <img class="product-img" src="../static/images/calca-tactel-cinza.jpeg" alt="Calça tactel cinza">
             </div>
             <div class="product-desc">
-                <h1 class="product-title">Calça tactel cinza</h1><br>
-                <p class="product-price">R$140</p>
-                <form action="POST">
-                    <select name="tamanho" id="tam">
+                <form action="" method="POST">
+                    <h1 class="product-title" value="calca_tactel_cinza">Calça tactel cinza</h1><br>
+                    <p class="product-price" value="140">R$134,99</p>
+                    <label class="label-tamanho" for="tamanho">Tamanho:</label>
+                    <select class="select-tamanho" name="tamanho" id="tam">
                         <optgroup>
                             <option value="tam-p">P</option>
                             <option value="tam-m">M</option>
@@ -57,7 +58,7 @@
                             <option value="tam-gg">GG</option>
                         </optgroup>
                     </select><br><br>
-                    <button type="submit">Comprar</button>
+                    <button type="submit" class="btn-buy">Adicionar ao carrinho</button>
                 </form>
             </div>
         </div>
