@@ -317,7 +317,7 @@
             <span class="grand-total">R$ 0.00</span>
           </footer>
         </div>
-        <button>Finalizar Compra</button>
+        <button id="finalizar-compra-button">Finalizar Compra</button>
       </aside>
     </div>
   </main>
