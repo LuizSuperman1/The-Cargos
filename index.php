@@ -14,7 +14,7 @@
         <a href="#"></a>
         <nav class="navigation">
             <ul>
-                <li><a href="admlogin.php">Administrador</a></li>
+                <li><a href="../templates/admlogin.php">Administrador</a></li>
             </ul>
         </nav>
     </header>
@@ -31,7 +31,7 @@
             </div>-->
             <div class="text">
                 <h3>CONHEÇA NOSSO SITE!!</h3>
-                <a href="catalogo.php" class="btn-link">NAVEGUE POR NOSSO CATÁLOGO</a>
+                <a href="../templates/catalogo.php" class="btn-link">NAVEGUE POR NOSSO CATÁLOGO</a>
             </div>
         </section>
     </main>
