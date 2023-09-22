@@ -4,6 +4,7 @@
 }
 
 .body-title {
+    text-align: center;
     font-family: sans-serif;
     font-size: 20px;
     margin: 40px;
@@ -11,7 +12,7 @@
 }
 
 .body-text {
-    margin: 20px;
+    margin: 50px;
     font-size: large;
 }
 
@@ -33,4 +34,8 @@
 
 main {
     height: 62vh;
+}
+
+.container-body {
+    display: block;
 }
