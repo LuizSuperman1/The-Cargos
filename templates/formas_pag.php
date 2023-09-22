@@ -1,3 +1,8 @@
+<?php
+
+include("../static/php/conexao.php");
+
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>

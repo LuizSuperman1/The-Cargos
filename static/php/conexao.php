@@ -1,8 +1,8 @@
 <?php
 
-$usuario = 'id21294678_thecargos';
-$senha = 'TheCargos.2023';
-$database = 'id21294678_bancothecargos';
+$usuario = 'root';
+$senha = '';
+$database = 'the_cargos';
 $host = 'localhost';
 
 $mysqli = new mysqli($host, $usuario, $senha, $database);

@@ -1,5 +1,5 @@
 <?php
-session_start();
+include("../static/php/conexao.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
