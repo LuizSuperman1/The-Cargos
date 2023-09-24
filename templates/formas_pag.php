@@ -1,6 +1,7 @@
 <?php
 
 include("../static/php/conexao.php");
+include("../static/php/protect.php");
 
 ?>
 <!DOCTYPE html>
