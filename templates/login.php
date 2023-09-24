@@ -1,6 +1,41 @@
 <?php
 include("../static/php/conexao.php");
 include("../static/php/session.php");
+
+if(isset($_POST['user']) || isset($_POST['senha'])) {
+
+    if (strlen($_POST['user']) == 0) {
+        echo "Preencha o usuário";
+    } else if (strlen($_POST['senha']) == 0) {
+        echo "Preencha a senha";
+    } else {
+        $user = $mysqli->real_escape_string($_POST['user']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM usuarios WHERE User = '$user' AND Senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Falha na conexão do código SQL: " . $mysqli->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if($quantidade==1) {
+            $usuario = $sql_query->fetch_assoc();
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['Id_Cliente'] = $usuario['Id_Cliente'];
+            $_SESSION['Senha'] = $usuario['Senha'];
+            $_SESSION['User'] = $usuario['User'];
+
+            header("Location: catalogo.php");
+
+        } else {
+            echo "Falha ao logar! E-mail ou senha incorretos!";
+        }
+    }
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -52,7 +87,7 @@ include("../static/php/session.php");
             <form action="" method="POST">
 
                 <input type="text" placeholder="Usuário" name="user">
-                <input type="text" placeholder="Senha" name="senha">
+                <input type="password" placeholder="Senha" name="senha">
                 <input id="btn-login" type="submit" value="Entrar">
 
             </form>

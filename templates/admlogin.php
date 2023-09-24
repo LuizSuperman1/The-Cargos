@@ -18,13 +18,13 @@ if(isset($_POST['user']) || isset($_POST['senha'])) {
         $quantidade = $sql_query->num_rows;
 
         if($quantidade==1) {
-            $usuario = $sql_query->fetch_assoc();
+            $adm = $sql_query->fetch_assoc();
             if (!isset($_SESSION)) {
                 session_start();
             }
 
-            $_SESSION['Id_Adm'] = $usuario['Id_Adm'];
-            $_SESSION['user'] = $usuario['user'];
+            $_SESSION['Id_Adm'] = $adm['Id_Adm'];
+            $_SESSION['user'] = $adm['user'];
 
             header("Location: dashboard.php");
 

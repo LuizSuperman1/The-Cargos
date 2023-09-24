@@ -36,8 +36,19 @@ include("../static/php/session.php");
         <li class="dropdown">
           <a class="link-navbar" href="#">Minha Conta</a>
           <div class="dropdown-menu">
-            <a href="../templates/cadastro.php">Criar uma conta</a>
-            <a href="../templates/login.php">Iniciar sessão</a>
+            <?php
+            if (!isset($_SESSION['Id_Cliente'])) {
+              ?>
+              <a href="../templates/cadastro.php">Criar uma conta</a>
+              <a href="../templates/login.php">Iniciar sessão</a>
+              <?php
+            } else {
+              ?>
+              <a href="../templates/userperfil.php">Perfil</a>
+              <a href="../static/php/logoutuser.php">Finalizar sessão</a>
+              <?php
+            }
+            ?>
           </div>
         </li>
       </ul>
@@ -278,17 +289,17 @@ include("../static/php/session.php");
                 }
               });
 
-              document.addEventListener("DOMContentLoaded", function() {
-              // Adicionar um evento de clique ao botão de "Finalizar Compra" pelo ID
-              const finalizarCompraButton = document.getElementById("finalizar-compra-button");
+              document.addEventListener("DOMContentLoaded", function () {
+                // Adicionar um evento de clique ao botão de "Finalizar Compra" pelo ID
+                const finalizarCompraButton = document.getElementById("finalizar-compra-button");
 
-              if (finalizarCompraButton) {
-                finalizarCompraButton.addEventListener("click", function() {
-                  //Redirecionar para a tela de pagamento 
-                  window.location.href = "pagamento.html";
-                });
-              }
-            });
+                if (finalizarCompraButton) {
+                  finalizarCompraButton.addEventListener("click", function () {
+                    //Redirecionar para a tela de pagamento 
+                    window.location.href = "pagamento.html";
+                  });
+                }
+              });
             </script>
 
 

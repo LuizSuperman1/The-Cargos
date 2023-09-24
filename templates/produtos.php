@@ -36,8 +36,19 @@ include("../static/php/session.php");
                 <li class="dropdown">
                     <a class="link-navbar" href="#">Minha Conta</a>
                     <div class="dropdown-menu">
-                        <a href="../templates/cadastro.php">Criar uma conta</a>
-                        <a href="../templates/login.php">Iniciar sessão</a>
+                        <?php
+                        if (!isset($_SESSION['Id_Cliente'])) {
+                            ?>
+                            <a href="../templates/cadastro.php">Criar uma conta</a>
+                            <a href="../templates/login.php">Iniciar sessão</a>
+                            <?php
+                        } else {
+                            ?>
+                            <a href="../templates/userperfil.php">Perfil</a>
+                            <a href="../static/php/logoutuser.php">Finalizar sessão</a>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </li>
             </ul>
@@ -71,7 +82,8 @@ include("../static/php/session.php");
             <div class="container-body">
                 <div class="card">
                     <div class="card-header">
-                        <a href="../templates/cargo1.php"><img class="card-img" src="../static/images/calca-tactel-cinza.jpeg"></a>
+                        <a href="../templates/cargo1.php"><img class="card-img"
+                                src="../static/images/calca-tactel-cinza.jpeg"></a>
                     </div>
                     <div class="card-body">
                         <h3 class="card-nome">Calça tactel cinza</h3>
@@ -80,8 +92,7 @@ include("../static/php/session.php");
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <a href="#"><img class="card-img"
-                                src="../static/images/calca-tactel-preta-ziper.jpg"></a>
+                        <a href="#"><img class="card-img" src="../static/images/calca-tactel-preta-ziper.jpg"></a>
                     </div>
                     <div class="card-body">
                         <h3 class="card-nome">Calça tactel preta com zíper</h3>

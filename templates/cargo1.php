@@ -36,8 +36,19 @@ include("../static/php/session.php");
                 <li class="dropdown">
                     <a class="link-navbar" href="#">Minha Conta</a>
                     <div class="dropdown-menu">
-                        <a href="../templates/cadastro.php">Criar uma conta</a>
-                        <a href="../templates/login.php">Iniciar sessão</a>
+                        <?php
+                        if (!isset($_SESSION['Id_Cliente'])) {
+                            ?>
+                            <a href="../templates/cadastro.php">Criar uma conta</a>
+                            <a href="../templates/login.php">Iniciar sessão</a>
+                            <?php
+                        } else {
+                            ?>
+                            <a href="../templates/userperfil.php">Perfil</a>
+                            <a href="../static/php/logoutuser.php">Finalizar sessão</a>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </li>
             </ul>
@@ -54,9 +65,11 @@ include("../static/php/session.php");
                     <h1 class="product-title" value="calca_tactel_cinza">Calça tactel cinza</h1><br>
                     <p>Se liga nas qualidades dessa raridade... <br>
 
-                    Além de exclusiva, essa cargo tem um dos melhores caimentos que temos na loja e de <br> fato um Tactel confortável e que ainda te deixa muitooo mais bonito... <br>
-                  
-                    A mais nova Tactel da loja, tem corte largo e se você <br> gosta de uma calça balão, vem nessa que é a pura❤️‍🔥</p><br>
+                        Além de exclusiva, essa cargo tem um dos melhores caimentos que temos na loja e de <br> fato um
+                        Tactel confortável e que ainda te deixa muitooo mais bonito... <br>
+
+                        A mais nova Tactel da loja, tem corte largo e se você <br> gosta de uma calça balão, vem nessa
+                        que é a pura❤️‍🔥</p><br>
                     <p class="product-price" value="140">R$134,99</p>
                     <label class="label-tamanho" for="tamanho">Tamanho:</label>
                     <select class="select-tamanho" name="tamanho" id="tam">
