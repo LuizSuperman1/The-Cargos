@@ -61,15 +61,15 @@ include("../static/php/session.php");
         <aside>
             <h2 class="welcome">Seja bem-vindo à</h2>
             <h2 class="welcome"><span>The Cargos!!</span></h2>
-            <form action="" method="POST">
+            <form action="../static/php/cadastro.php" method="POST">
 
                 <input type="text" placeholder="Nome completo" name="name">
                 <input type="text" placeholder="Usuário" name="user">
-                <input type="text" placeholder="Email" name="email">
+                <input type="email" placeholder="Email" name="email">
                 <input type="text" placeholder="Telefone" name="telefone">
                 <input type="text" placeholder="Endereço" name="endereco">
                 <input type="text" placeholder="CPF" name="cpf">
-                <input type="text" placeholder="Senha" name="senha">
+                <input type="password" placeholder="Senha" name="senha">
                 <input id="btn-login" type="submit" value="Criar conta">
 
             </form>
