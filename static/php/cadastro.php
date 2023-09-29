@@ -18,9 +18,7 @@ $result_usuario = "INSERT INTO usuarios (Nome, User, Senha, Email, Telefone, End
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 if (mysqli_insert_id($conn)) {
-    $_SESSION['msg'] = "<p>Cadastrado!</p>";
     header("Location: /the_cargos/templates/catalogo.php");
 } else {
-    $_SESSION['msg'] = "<p>Falha ao cadastrar!</p>";
     header("Location: /the_cargos/templates/cadastro.php");
 }
