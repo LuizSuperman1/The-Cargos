@@ -8,7 +8,7 @@ include_once('conexao.php');
 
 $nome = filter_input(INPUT_POST, 'nome-prod', FILTER_SANITIZE_STRING);
 $quant = filter_input(INPUT_POST, 'quant-prod', FILTER_SANITIZE_STRING);
-$custo = filter_input(INPUT_POST, 'cisto-prod', FILTER_SANITIZE_STRING);
+$custo = filter_input(INPUT_POST, 'custo-prod', FILTER_SANITIZE_STRING);
 $preco = filter_input(INPUT_POST, 'preco-prod', FILTER_SANITIZE_STRING);
 $tamanho = filter_input(INPUT_POST, 'tam-prod', FILTER_SANITIZE_STRING);
 //$imagem = $_FILES['imagem-prod']['tmp-name'];
