@@ -22,7 +22,10 @@ include("../static/php/protect.php");
 
     <h1>Listagem de Produtos</h1>
     <div id="wrap">
-    <input type="text" value="<?php if (isset($_GET['busca'])) echo $_GET['busca'] ?>" name="busca" placeholder="Digite os termos de pesquisa">
+        <form action="">
+            <input type="text" value="<?php if (isset($_GET['busca'])) echo $_GET['busca'] ?>" name="busca" placeholder="Digite os termos de pesquisa">
+            <button class="btn-search" type="submit">Pesquisar</button>
+        </form>
         <div id="botoes">
             <a href="produto-cadastro.php">Cadastrar</a>
             <a href="produto-delete.php">Excluir</a>
@@ -56,7 +59,18 @@ include("../static/php/protect.php");
                 </td>
             </tr>
             <?php
-            $sql_code = "SELECT * FROM calcas";
+            if (isset($_GET['busca'])) {
+                $pesquisa = $mysqli->real_escape_string($_GET['busca']);
+                $sql_code = "SELECT * FROM calcas WHERE
+                    Id_Prod LIKE '%$pesquisa%' OR
+                    Nome LIKE '%$pesquisa%' OR
+                    Tamanho LIKE '%$pesquisa%' OR
+                    Custo LIKE '%$pesquisa%' OR
+                    Preco LIKE '%$pesquisa%' OR
+                    Quantidade LIKE '%$pesquisa%'";
+            } else {
+                $sql_code = "SELECT * FROM calcas";
+            }
             $sql_query = $mysqli->query($sql_code) or die("Erro ao listar produtos! " . $mysqli->error);
 
             while ($dados = $sql_query->fetch_assoc()) {
