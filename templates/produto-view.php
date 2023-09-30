@@ -60,7 +60,7 @@ include("../static/php/protect.php");
             </tr>
             <?php
             if (isset($_GET['busca'])) {
-                $pesquisa = $mysqli->real_escape_string($_GET['busca']);
+                $pesquisa = $conn->real_escape_string($_GET['busca']);
                 $sql_code = "SELECT * FROM calcas WHERE
                     Id_Prod LIKE '%$pesquisa%' OR
                     Nome LIKE '%$pesquisa%' OR
@@ -71,7 +71,7 @@ include("../static/php/protect.php");
             } else {
                 $sql_code = "SELECT * FROM calcas";
             }
-            $sql_query = $mysqli->query($sql_code) or die("Erro ao listar produtos! " . $mysqli->error);
+            $sql_query = $conn->query($sql_code) or die("Erro ao listar produtos! " . $conn->error);
 
             while ($dados = $sql_query->fetch_assoc()) {
                 ?>

@@ -1,13 +1,12 @@
 <?php
 
-$usuario = 'root';
-$senha = '';
-$database = 'the_cargos';
-$host = 'localhost';
+$usuario = 'pongo013_SQLLogin_1';
+$senha = '5uwmp9opl8';
+$database = 'TheCargos';
+$host = 'TheCargos.mssql.somee.com';
 
 $conn = mysqli_connect($host, $usuario, $senha, $database);
-$mysqli = new mysqli($host, $usuario, $senha, $database);
 
-if ($mysqli->error) {
-    die("Falha ao conectar ao banco de dados " . $mysqli->error);
+if ($conn->error) {
+    die("Falha ao conectar ao banco de dados " . $conn->error);
 }

@@ -15,14 +15,14 @@ include("../static/php/protect.php");
     <link rel="stylesheet" href="\The-Cargos\static\css\style-sidebar.css">
     <link rel="stylesheet" href="../static/css/style-estoque.css">
     <link rel="stylesheet" href="../static/css/style-estoque-antigo.css">
-    <title>Estoque</title>
+    <title>Cadastrar</title>
 </head>
 
 <body>
     <?php include("sidebar1.php") ?>
             <h1>Cadastrar Novo Produto</h1>
             <div id="wrap">
-                <form action="../static/php/cadastro-prod.php" method="POST">
+                <form action="../static/php/prod-cadastro.php" method="POST">
                     <input type="text" placeholder="Nome:" name="nome-prod">
                     <input type="number" placeholder="Quantidade" name="quant-prod">
                     <input type="number" placeholder="Custo" name="custo-prod">

@@ -9,11 +9,11 @@ if(isset($_POST['user']) || isset($_POST['senha'])) {
     } else if (strlen($_POST['senha']) == 0) {
         echo "Preencha a senha";
     } else {
-        $user = $mysqli->real_escape_string($_POST['user']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
+        $user = $conn->real_escape_string($_POST['user']);
+        $senha = $conn->real_escape_string($_POST['senha']);
 
         $sql_code = "SELECT * FROM admin WHERE user = '$user' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na conexão do código SQL: " . $mysqli->error);
+        $sql_query = $conn->query($sql_code) or die("Falha na conexão do código SQL: " . $conn->error);
 
         $quantidade = $sql_query->num_rows;
 
