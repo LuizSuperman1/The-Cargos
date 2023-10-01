@@ -17,8 +17,10 @@ $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 $result_usuario = "INSERT INTO usuarios (Nome, User, Senha, Email, Telefone, Endereco, CPF) VALUES ('$nome', '$user', '$senha', '$email', '$telefone', '$ender', '$cpf')";
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
-if (mysqli_insert_id($conn)) {
-    header("Location: /the_cargos/templates/catalogo.php");
+if ($result_usuario==TRUE) {
+    print "<script>alert('Cadastrado com sucesso!')</script>";
+    print "<script>location.href='../templates/catalogo.php'</script>";
 } else {
-    header("Location: /the_cargos/templates/cadastro.php");
+    print "<script>alert('Falha ao cadastrar!')</script>";
+    print "<script>location.href='../templates/cadastro.php'</script>";
 }

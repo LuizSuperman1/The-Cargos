@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +10,7 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-body > header {
+body>header {
   background: #111;
   color: white;
   font-size: 24px;
@@ -18,61 +19,59 @@ body > header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-body > .home-section > main {
+body>.home-section>main {
   background: #fff;
   padding: 0 30px 30px;
 }
 
-body > .home-section > main .page-title {
+body>.home-section>main .page-title {
   font-size: 40px;
   padding: 50px 0;
   text-align: center;
 }
 
-body > .home-section > main .content {
+body>.home-section>main .content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body > .home-section > main .content section {
+body>.home-section>main .content section {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
-body > .home-section > main .content aside {
+body>.home-section>main .content aside {
   min-width: 250px;
 }
 
 
-.home-section{
-
+.home-section {
   position: relative;
   background: #f5f5f5;
   min-height: 100vh;
-  width: 100%;
-  
+  width: calc(100% - 78px);
   transition: all 0.5s ease;
 }
 
-.sidebar.active ~ .home-section nav{
+.sidebar.active~.home-section nav {
   width: calc(100% - 60px);
   left: 60px;
 }
 
-.home-section nav{
+.home-section nav {
   display: flex;
   justify-content: space-between;
   height: 80px;
   display: flex;
   align-items: center;
   position: relative;
-  width: 100% ;
+  width: 100%;
   z-index: 100;
   padding: 0 20px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -80,62 +79,50 @@ body > .home-section > main .content aside {
 }
 
 .home-section nav .sidebar-button {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
 }
 
-.sidebar.active ~ .home-section{
-left: 250px;
-width: calc(100% - 250px);
+.sidebar.active~.home-section {
+  left: 250px;
+  width: calc(100% - 250px);
 }
 
-.wrapper{
-
-display: grid;
-margin: 200px 90px auto;
-grid-gap: 20px;
-grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-
+.wrapper {
+  display: grid;
+  margin: 200px 90px auto;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
-.wrapper .box{
-
-width: 350px;
-margin: 0 auto;
-background-color: #1d1b31;
-height: 220px;
-width: 70%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-border-radius: 15px;
-padding: 20px;
-align-items: center;
-color: #E4E9F7;
-
+.wrapper .box {
+  width: 350px;
+  margin: 0 auto;
+  background-color: #1d1b31;
+  height: 220px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 20px;
+  align-items: center;
+  color: #E4E9F7;
 }
 
 .wrapper .box i {
+  color: #E4E9F7;
+  font-size: 55px;
+  padding: 20px;
 
-color: #E4E9F7;
-font-size: 55px;
-padding: 20px;
-  
 }
 
-.wrapper .box a{
-
+.wrapper .box a {
   font-size: 15pt;
   color: #E4E9F7;
-  
-  }
-
-
-
-
-
+}
 
 button {
   cursor: pointer;
@@ -175,8 +162,8 @@ table tbody tr td {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .product img {
@@ -203,10 +190,10 @@ table tbody tr td {
   display: inline-flex;
   padding: 0 0;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: right;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   min-width: 60px;
   border-radius: 20px;
   overflow: hidden;
@@ -222,8 +209,8 @@ table tbody tr td {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: transparent;
   border: 0;
   padding: 0 10px;
@@ -242,8 +229,6 @@ table tbody tr td {
   height: 90px;
 }
 
-
-
 .remove {
   background: #eee;
   border: 0;
@@ -254,11 +239,11 @@ table tbody tr td {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   font-size: 20px;
 }
 
@@ -288,18 +273,18 @@ aside .box .info {
   font-size: 16px;
 }
 
-aside .box .info > div {
+aside .box .info>div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin-bottom: 10px;
   color: #555;
 }
 
-aside .box .info > div:last-child {
+aside .box .info>div:last-child {
   margin: 0;
 }
 
@@ -311,8 +296,8 @@ aside .box .info button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 16px;
 }
 
@@ -324,11 +309,11 @@ aside .box footer {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
-aside > button {
+aside>button {
   border: 0;
   padding: 15px 0;
   color: white;
@@ -340,7 +325,12 @@ aside > button {
   font-size: 16px;
 }
 
-aside > button:hover {
+aside>button:hover {
   background: #3bc55b;
 }
+
 /*# sourceMappingURL=styles.css.map */
+
+.img-prod {
+  max-height: 100px;
+}

@@ -20,6 +20,14 @@ h1{
     margin-left: 2%;
 }
 
+.link-prod {
+    width: 30%;
+    height: 35px;
+    background-color: #8a60d3;
+    color: white;
+    border-radius: 5px;
+}
+
 button{
     width: 30%;
     height: 35px;
@@ -43,9 +51,15 @@ table{
     border-radius: 10px;
     background-color:  #8a60d3;
     color: white;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 td{
     border: 1px solid white;
     border-radius: 10px;
+}
+
+img {
+    max-width: fit-content;
 }

@@ -20,39 +20,50 @@ include("../static/php/protect.php");
 
 <body>
     <?php include("sidebar1.php") ?>
-            <h1>Cadastrar Novo Produto</h1>
-            <div id="wrap">
-                <form action="">
-                    <div>
-                        <h2 class="digite-text">Digite o Id do produto que queira editar</h2>
-                        <input type="number" placeholder="Id" name="search-id" value="<?php if (isset($_GET['search-id'])) echo $_GET['search-id'] ?>">
-                    </div>
-                </form><br>
-                    <div>
-                        <?php
-                        if (isset($_GET['search-id'])) {
-                            $pesquisa = $conn->real_escape_string($_GET['search-id']);
-                            $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
-
-                            $sql_query_search = $conn->query($sql_code_search) or die("Erro ao pesquisar produto! " . $conn->error);
-                            $dados = $sql_query_search->fetch_assoc();
-                        }
-                        ?>
-                    <form action="../static/php/prod-edit.php" method="POST">
-                        <input type="text" style="display:none;" name="prod-id" value="<?php $pesquisa ?>">
-                        <input type="text" placeholder="Nome" name="nome-prod" value="<?php if (isset($_GET['search-id'])) echo $dados['Nome'] ?>">
-                        <input type="number" placeholder="Quantidade" name="quant-prod" value="<?php if (isset($_GET['search-id'])) echo $dados['Quantidade'] ?>">
-                        <input type="number" placeholder="Custo" name="custo-prod" value="<?php if (isset($_GET['search-id'])) echo $dados['Custo'] ?>">
-                        <input type="number" placeholder="Preço" name="preco-prod" value="<?php if (isset($_GET['search-id'])) echo $dados['Preco'] ?>">
-                        <input type="text" placeholder="Tamanho" name="tam-prod" value="<?php if (isset($_GET['search-id'])) echo $dados['Tamanho'] ?>">
-                        <!--<input type="file" accept="image/*" name="image-prod" value="<?php /* if (isset($_GET['search-id'])) echo $dados['Imagem'] */ ?>">-->
-                    </div>
-                    <div id="botoes">
-                        <button type="submit">Editar</button>
-                    </div>
-                    </form>
+    <h1>Cadastrar Novo Produto</h1>
+    <div id="wrap">
+        <form action="">
+            <div>
+                <h2 class="digite-text">Id do produto que queira editar</h2>
+                <input type="number" placeholder="Id" name="search-id" value="<?php if (isset($_GET['search-id'])) echo $_GET['search-id'] ?>">
             </div>
-            <?php include("sidebar2.php") ?>
+        </form><br>
+        <div>
+            <?php
+            if (isset($_GET['search-id'])) {
+                $pesquisa = $conn->real_escape_string($_GET['search-id']);
+                $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
+
+                $sql_query_search = $conn->query($sql_code_search) or die("Erro ao pesquisar produto! " . $conn->error);
+                $dados = $sql_query_search->fetch_assoc();
+            } else {
+                $pesquisa = $_REQUEST['id'];
+                $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
+
+                $sql_query_search = $conn->query($sql_code_search) or die("Erro ao pesquisar produto! " . $conn->error);
+                $dados = $sql_query_search->fetch_assoc();
+            }
+            ?>
+            <form action="../static/php/prod-edit.php" method="POST">
+                <input type="hidden" name="prod-id" value="<?php $pesquisa ?>">
+                <input type="text" placeholder="Nome" name="nome-prod" value="<?php
+                echo $dados['Nome'] ?>">
+                <input type="number" placeholder="Quantidade" name="quant-prod" value="<?php
+                echo $dados['Quantidade'] ?>">
+                <input type="number" placeholder="Custo" name="custo-prod" value="<?php
+                echo $dados['Custo'] ?>">
+                <input type="number" placeholder="Preço" name="preco-prod" value="<?php
+                echo $dados['Preco'] ?>">
+                <input type="text" placeholder="Tamanho" name="tam-prod" value="<?php
+                echo $dados['Tamanho'] ?>">
+                <!--<input type="file" accept="image/*" name="image-prod" value="<?php /* if (isset($_GET['search-id'])) echo $dados['Imagem'] */?>">-->
+        </div>
+        <div id="botoes">
+            <button type="submit">Editar</button>
+        </div>
+        </form>
+    </div>
+    <?php include("sidebar2.php") ?>
 </body>
 
 </html>

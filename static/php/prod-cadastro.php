@@ -26,5 +26,8 @@ $tamanho = filter_input(INPUT_POST, 'tam-prod', FILTER_SANITIZE_STRING);
 }--*/
 
 $queryProd = "INSERT INTO calcas (Nome, Tamanho, Custo, Preco, Quantidade/*, Imagem*/) VALUES ('$nome', '$tamanho', '$custo', '$preco', '$quant')";
-$prodResult = mysqli_query($conn, $queryProd) or die("Erro ao cadastrar produto! ");
+$prodResult = mysqli_query($conn, $queryProd);
+
+
+
 header('Location: /the_cargos/templates/produto-view.php');
