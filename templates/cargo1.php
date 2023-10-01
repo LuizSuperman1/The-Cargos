@@ -61,7 +61,7 @@ include("../static/php/session.php");
                 <img class="product-img" src="../static/images/calca-tactel-cinza.jpeg" alt="Calça tactel cinza">
             </div>
             <div class="product-desc">
-                <form action="" method="POST">
+                <form action="../templates/carrinho.php" method="POST">
                     <h1 class="product-title" value="calca_tactel_cinza">Calça tactel cinza</h1><br>
                     <p>Se liga nas qualidades dessa raridade... <br>
 

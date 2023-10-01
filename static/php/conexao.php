@@ -1,9 +1,9 @@
 <?php
 
-$usuario = 'pongo013_SQLLogin_1';
-$senha = '5uwmp9opl8';
-$database = 'TheCargos';
-$host = 'TheCargos.mssql.somee.com';
+$usuario = 'root';
+$senha = '';
+$database = 'the_cargos';
+$host = 'localhost';
 
 $conn = mysqli_connect($host, $usuario, $senha, $database);
 
