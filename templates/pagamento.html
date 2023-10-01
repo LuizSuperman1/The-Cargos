@@ -2,51 +2,385 @@
 <html lang="pt-br">
 
 <head>
+
+        <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Estilos -->
     <link rel="stylesheet" href="../static/css/style-catalogo.css">
     <link rel="stylesheet" href="../static/css/style-pagamento.css">
-
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+
+        <!-- Título da Página -->
     <title>Pagamento</title>
+
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a class="logo" href="../templates/catalogo.php">TheCargos</a>
-            <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-list">
-                <li><a class="link-navbar" href="../templates/catalogo.php">Início</a></li>
-                <li><a class="link-navbar" href="../templates/produtos.php">Produtos</a></li>
-                <li><a class="link-navbar" href="../templates/trocas.php">Trocas e Devoluções</a></li>
-                <li><a class="link-navbar" href="../templates/guia-medidas.php">Guia de Medidas</a></li>
-            </ul>
-            <ul class="nav-list">
-                <li><a class="link-navbar" href="../templates/carrinho.php">Carrinho</a></li>
-                <li class="dropdown">
-                    <a class="link-navbar" href="#">Minha Conta</a>
-                    <div class="dropdown-menu">
-                        <a href="../templates/cadastro.php">Criar uma conta</a>
-                        <a href="../templates/login.php">Iniciar sessão</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+
+        <!-- Cabeçalho -->
+<header>
+
+<nav>
+
+        <!-- Logo e links de navegação -->
+    <a class="logo" href="../templates/catalogo.php">TheCargos</a>
+    <div class="mobile-menu">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+        </div>
+    <ul class="nav-list">
+        <li><a class="link-navbar" href="../templates/catalogo.php">Início</a></li>
+        <li><a class="link-navbar" href="../templates/produtos.php">Produtos</a></li>
+        <li><a class="link-navbar" href="../templates/trocas.php">Trocas e Devoluções</a></li>
+        <li><a class="link-navbar" href="../templates/guia-medidas.php">Guia de Medidas</a></li>
+    </ul>
+    <ul class="nav-list">
+        <li><a class="link-navbar" href="../templates/carrinho.php">Carrinho</a></li>
+        <li class="dropdown">
+    <a class="link-navbar" href="#">Minha Conta</a>
+    <div class="dropdown-menu">
+    <a href="../templates/cadastro.php">Criar uma conta</a>
+    <a href="../templates/login.php">Iniciar sessão</a>
+    </div>
+    </li>
+    </ul>
+    </nav>
+
+</header>
 
 
-        <main>
-        </main>
+        <!-- Conteúdo Principal -->
+<main>
+
+    <div class="payment-container">
+        <!-- Primeira etapa do pagamento -->
+    <div id="primeira-etapa">
+    <h2>Dados de Contato</h2>
+    <form id="payment-form-1">
+
+        <!-- Campos para dados de contato -->
+    <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    </div>
+
+    <h2>Dados do Destinatário</h2>
+
+    <div class="form-group">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+    </div>
+
+    <div class="form-group">
+    <label for="sobrenome">Sobrenome:</label>
+    <input type="text" id="sobrenome" name="sobrenome" required>
+    </div>
+
+    <div class="form-group">
+    <label for="celular">Celular:</label>
+    <input type="tel" id="celular" name="celular" required>
+    </div>
+    <button type="button" id="proximo1" onclick="validarPrimeiraEtapa(event)">Continuar</button>
+    </form>
+    </div>
+  
+        <!-- Segunda etapa do pagamento -->
+    <div id="segunda-etapa" style="display: none;">
+    <h2>Informações de Pagamento</h2>
+    <form id="payment-form">
+
+        <!-- Campos para informações de pagamento -->
+    <div class="form-group">
+    <label for="endereco-entrega">Endereço de Entrega:</label>
+    <input type="text" id="endereco-entrega" name="endereco-entrega" required>
+    </div>
+
+    <div class="form-group address-fields">
+    <div class="half-width">
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" required>
+    </div>
+
+    <div class="half-width">
+    <label for="complemento">Complemento (Opcional):</label>
+    <input type="text" id="complemento" name="complemento">
+    </div>
+
+    </div>
+    <div class="form-group address-fields">
+    <div class="half-width">
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro" required>
+    </div>
+
+    <div class="half-width">
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" required>
+    </div>
+    </div>
+
+    <div class="form-group address-fields">
+    <div class="half-width">
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" name="estado" required>
+    </div>
+
+    <div class="half-width">
+    <label for="cep">CEP:</label>
+    <input type="text" id="cep" name="cep" required>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="metodo-pagamento">Método de Pagamento:</label>
+    <select id="metodo-pagamento-2" name="metodo-pagamento" onchange="mostrarCamposAdicionais()" required>
+    <option value="boleto">Boleto Bancário</option>
+    <option value="cartao">Cartão de Crédito</option>
+    <option value="pix">PIX</option>
+    </select>
+    </div>
+
+    <div id="detalhes-pagamento" class="form-group">
+    <div id="pix-campos" style="display: none;">
+    <label for="chave-pix">Chave PIX:</label>
+    <input type="text" id="chave-pix" name="chave-pix" required>
+    </div>
+                  
+        <!-- Campos adicionais para Boleto -->
+    <div id="boleto-campos" style="display: none;">
+    <label for="nome-boleto">Nome completo:</label>
+    <input type="text" id="nome-boleto" name="nome-boleto">
+                    
+    <label for="cpf-cnpj-boleto">CPF ou CNPJ:</label>
+    <input type="text" id="cpf-cnpj-boleto" name="cpf-cnpj-boleto">
+                    
+    <label for="endereco-boleto">Endereço:</label>
+    <input type="text" id="endereco-boleto" name="endereco-boleto">
+
+    <label for="data-vencimento">Data de Vencimento:</label>
+    <input type="date" id="data-vencimento" name="data-vencimento" required>
+    </div>
+                  
+        <!-- Campos adicionais para Cartão de Crédito -->
+    <div id="cartao-campos" style="display: none;">
+    <label for="numero-cartao">Número do Cartão:</label>
+    <input type="text" id="numero-cartao" name="numero-cartao" required>
+                  
+    <label for="data-validade">Data de Validade:</label>
+    <input type="text" id="data-validade" name="data-validade" required>
+                  
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" name="cvv" required>
+    </div>
+    </div>
+
+        <!-- Campos adicionais de pagamento com JavaScript -->
+        <button type="button" id="voltar" onclick="mostrarPrimeiraEtapa()">Voltar</button>
+        <button type="button" id="comprar" onclick="validarSegundaEtapa()">Comprar</button>
+    <div id="mensagem-confirmacao" style="display: none;">
+    <p>Compra efetuada com sucesso! Obrigado por comprar conosco.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+      
+    </main>
+      
+        
+    <!-- JavaScript -->
+    <script>
+
+         // Função para validar a primeira etapa do pagamento
+         // Função para validar a primeira etapa do pagamento
+function validarPrimeiraEtapa(event) {
+    // Impede o comportamento padrão do envio do formulário
+    event.preventDefault();
+
+    // Selecionar os campos
+    var email = document.getElementById("email").value;
+    var nome = document.getElementById("nome").value;
+    var sobrenome = document.getElementById("sobrenome").value;
+    var celular = document.getElementById("celular").value;
+
+    // Validar os campos (adapte essas condições de acordo com seus requisitos)
+    if (!email || !nome || !sobrenome || !celular) {
+        alert("Por favor, preencha todos os campos.");
+    } else if (!isValidEmail(email)) {
+        alert("Por favor, insira um endereço de e-mail válido.");
+    } else if (!contemApenasLetras(nome) || !contemApenasLetras(sobrenome)) {
+        alert("Os campos 'Nome' e 'Sobrenome' devem conter apenas letras.");
+    } else if (!contemApenasNumeros(celular) || celular.length !== 11) {
+        alert("Por favor, insira um número de celular válido com até 11 dígitos.");
+    } else {
+        // Se todos os campos estão preenchidos e válidos, avance para a segunda etapa
+        mostrarSegundaEtapa();
+    }
+}
+
+    document.getElementById("segunda-etapa").style.display = "none";
+    document.getElementById("primeira-etapa").style.display = "block";
 
 
+    // Função para validar a segunda etapa do pagamento
+function validarSegundaEtapa() {
+    // Selecionar os campos
+    var enderecoEntrega = document.getElementById("endereco-entrega").value;
+    var numero = document.getElementById("numero").value;
+    var bairro = document.getElementById("bairro").value;
+    var cidade = document.getElementById("cidade").value;
+    var estado = document.getElementById("estado").value;
+    var cep = document.getElementById("cep").value;
+    var metodoPagamento = document.getElementById("metodo-pagamento-2").value;
 
+    // Validar os campos
+    if (!enderecoEntrega || !numero || !bairro || !cidade || !estado || !cep || !metodoPagamento) {
+        alert("Por favor, preencha todos os campos.");
+    } else {
+        // Chama a função para mostrar os campos adicionais com base no método de pagamento
+        mostrarCamposAdicionais();
+
+        // Chama a função de validação específica para cada método de pagamento
+        if (metodoPagamento === "pix") {
+            validarCamposPix();
+        } else if (metodoPagamento === "boleto") {
+            validarCamposBoleto();
+        } else if (metodoPagamento === "cartao") {
+            validarCamposCartao();
+        }
+    }
+}
+ // Função para mostrar campos adicionais com base no método de pagamento
+ function mostrarCamposAdicionais() {
+    var metodoPagamento = document.getElementById("metodo-pagamento-2").value;
+
+    // Oculta todos os campos adicionais antes de exibir os campos do método selecionado
+    document.getElementById("pix-campos").style.display = "none";
+    document.getElementById("boleto-campos").style.display = "none";
+    document.getElementById("cartao-campos").style.display = "none";
+
+    // Exibe os campos adicionais do método selecionado
+    if (metodoPagamento === "pix") {
+        document.getElementById("pix-campos").style.display = "block";
+    } else if (metodoPagamento === "boleto") {
+        document.getElementById("boleto-campos").style.display = "block";
+    } else if (metodoPagamento === "cartao") {
+        document.getElementById("cartao-campos").style.display = "block";
+    }
+}
+
+// Função para validar campos específicos do método de pagamento PIX
+function validarCamposPix() {
+    var chavePix = document.getElementById("chave-pix").value;
+
+    // Validar os campos do Pix
+    if (!chavePix) {
+        alert("Por favor, preencha a chave PIX.");
+    } else if (!contemApenasNumerosEsimbolos(chavePix)) {
+        alert("A chave PIX deve conter apenas números e símbolos.");
+    } else {
+        confirmarCompra();
+    }
+}
+
+// Função para validar campos específicos do método de pagamento Boleto
+function validarCamposBoleto() {
+    var nomeCompletoBoleto = document.getElementById("nome-boleto").value;
+    var cpfCnpjBoleto = document.getElementById("cpf-cnpj-boleto").value;
+    var enderecoBoleto = document.getElementById("endereco-boleto").value;
+
+    // Validar os campos do boleto
+    if (!nomeCompletoBoleto || !cpfCnpjBoleto || !enderecoBoleto) {
+        alert("Por favor, preencha todos os campos do boleto.");
+    } else if (!contemApenasLetras(nomeCompletoBoleto) || !contemApenasNumeros(cpfCnpjBoleto)) {
+        alert("O nome deve conter apenas letras, e CPF/CNPJ apenas números.");
+    } else {
+        confirmarCompra();
+    }
+}
+
+// Função para validar campos específicos do método de pagamento Cartão
+function validarCamposCartao() {
+    var numeroCartao = document.getElementById("numero-cartao").value;
+    var dataValidade = document.getElementById("data-validade").value;
+    var cvv = document.getElementById("cvv").value;
+
+    // Validar os campos do cartão
+    if (!numeroCartao || !dataValidade || !cvv) {
+        alert("Por favor, preencha todos os campos do cartão de crédito.");
+    } else if (!contemApenasNumerosEsimbolos(numeroCartao) || !contemApenasNumerosEsimbolos(cvv)) {
+        alert("O número do cartão e o CVV devem conter apenas números e símbolos.");
+    } else {
+        confirmarCompra();
+    }
+}
+
+// Função para verificar se a string contém apenas números e símbolos
+function contemApenasNumerosEsimbolos(texto) {
+    return /^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/.test(texto);
+}
+
+// Função para mostrar a primeira etapa
+function mostrarPrimeiraEtapa() {
+    document.getElementById("primeira-etapa").style.display = "block";
+    document.getElementById("segunda-etapa").style.display = "none";
+}
+
+// Função para mostrar a segunda etapa
+        function mostrarSegundaEtapa() {
+            document.getElementById("primeira-etapa").style.display = "none";
+            document.getElementById("segunda-etapa").style.display = "block";
+        }
+    
+           // Função para confirmar a compra
+        function confirmarCompra() {
+            // Validar os campos novamente antes de confirmar a compra
+            var enderecoEntrega = document.getElementById("endereco-entrega").value;
+            var numero = document.getElementById("numero").value;
+            var bairro = document.getElementById("bairro").value;
+            var cidade = document.getElementById("cidade").value;
+            var estado = document.getElementById("estado").value;
+            var cep = document.getElementById("cep").value;
+            var metodoPagamento = document.getElementById("metodo-pagamento-2").value;
+    
+            // Validar campos comuns
+            if (!enderecoEntrega || !numero || !bairro || !cidade || !estado || !cep || !metodoPagamento) {
+                alert("Por favor, preencha todos os campos.");
+            } else {
+                // Simula o processamento da compra
+                // Exibe a mensagem de confirmação e oculta o botão
+                document.getElementById("comprar").style.display = "none";
+                document.getElementById("mensagem-confirmacao").style.display = "block";
+            }
+        }
+    
+        
+        // Função para verificar se um e-mail é válido
+        function isValidEmail(email) {
+            // Use uma expressão regular para validar o formato do email
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailPattern.test(email);
+        }
+
+        // Função para validar se a string contém apenas letras
+function contemApenasLetras(texto) {
+    return /^[a-zA-Z]+$/.test(texto);
+}
+
+// Função para validar se a string contém apenas números
+function contemApenasNumeros(texto) {
+    return /^[0-9]+$/.test(texto);
+}
+    
+    </script>
+      
+
+<!-- Rodapé -->
     <footer>
+        <!-- Informações de contato e links sociais -->
         <div class="container-conectado">
             <h2>Mantenha-se conectado:</h2>
             <div class="div-contato">
@@ -79,6 +413,8 @@
 
         </div>
     </footer>
+    <!-- Biblioteca de ícones -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+       <!-- Script personalizado -->
     <script src="../static/js/catalogo.js"></script>
 </body>
