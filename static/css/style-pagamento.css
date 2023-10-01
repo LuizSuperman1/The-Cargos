@@ -1,1 +1,184 @@
+/* Estilo para a tela de pagamento */
+.payment-container {
+    margin: 50px;
+    padding: 50px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
+.payment-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo para os botões de ação */
+.payment-container button {
+    background-color: #00afdf;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-container button:hover {
+    background-color: #005269;
+}
+
+/* Espaçamento e margens */
+.payment-container label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.payment-container input[type="text"],
+.payment-container input[type="date"],
+.payment-container select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Bordas e sombras */
+.payment-container, #resumo-pedido {
+    border: 1px solid #ccc;
+}
+
+#resumo-pedido {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#resumo-pedido h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os campos adicionais de pagamento */
+#detalhes-pagamento {
+    margin-top: 20px;
+}
+
+#detalhes-pagamento label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Estilize os campos de email e celular da mesma forma que os outros campos */
+
+/* Para campos de entrada de texto */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Para campos de seleção (dropdown) */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('seu-icone-aqui.png') no-repeat;
+    background-position: right center;
+    background-size: 16px 16px;
+    padding-right: 30px;
+}
+
+/* Estilize os campos de endereço conforme necessário */
+.address-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-fields .half-width {
+    flex: 0 0 calc(50% - 10px);
+    margin-right: 10px;
+}
+
+.address-fields label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.address-fields input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para a terceira etapa */
+#terceira-etapa {
+    display: none;
+    margin-top: 20px;
+}
+
+#terceira-etapa h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#resumo-pedido {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#resumo-pedido h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#quantia-desconto {
+    font-weight: bold;
+}
+
+#confirmar-pedido,
+#voltar-segunda {
+    background-color: #00afdf;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+#confirmar-pedido:hover,
+#voltar-segunda:hover {
+    background-color: #005269;
+}
