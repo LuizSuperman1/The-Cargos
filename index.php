@@ -1,43 +1,110 @@
 <?php
-include('static/php/conexao.php');
+
+$usuario = 'root';
+$senha = '';
+$database = 'the_cargos';
+$host = 'localhost';
+
+$conn = mysqli_connect($host, $usuario, $senha, $database);
+
+if ($conn->error) {
+    die("Falha ao conectar ao banco de dados " . $conn->error);
+}
+
+if(isset($_POST['user']) || isset($_POST['senha'])) {
+
+    if (strlen($_POST['user']) == 0) {
+        echo "Preencha o usuário";
+    } else if (strlen($_POST['senha']) == 0) {
+        echo "Preencha a senha";
+    } else {
+        $user = $conn->real_escape_string($_POST['user']);
+        $senha = $conn->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM admin WHERE user = '$user' AND senha = '$senha'";
+        $sql_query = $conn->query($sql_code) or die("Falha na conexão do código SQL: " . $conn->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if($quantidade==1) {
+            $adm = $sql_query->fetch_assoc();
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['Id_Adm'] = $adm['Id_Adm'];
+            $_SESSION['user'] = $adm['user'];
+
+            header("Location: /the_cargos/templates/dashboard.php");
+
+        } else {
+            echo "Falha ao logar! E-mail ou senha incorretos!";
+        }
+    }
+
+}
+
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/style-index.css">
-    <title>TheCargos</title>
+    <link rel="stylesheet" href="/the_cargos/static/css/style-admlogin.css">
+    <title>Login</title>
 </head>
 
 <body>
+
     <header>
-        <a href="#"></a>
-        <nav class="navigation">
-            <ul>
-                <li><a href="templates/admlogin.php">Administrador</a></li>
-            </ul>
-        </nav>
+
+        <div id="title">
+            <h1>The Cargos</h1>
+        </div>
+
+        <div>
+            <h1>Bem-vindo!</h1>
+        </div>
+
     </header>
+
+
     <main>
-        <section>
-            <div class="btn-text">
-                <h1 class="text">✨NÃO É SÓ UMA CALÇA, É UM ESTILO!!!✨</h1>
-                <h1 class="text2">😮💨</h1>
-            </div>
-            <!--<div class="btn-box">
-                <a href="#" class="btn">
-                    <p>BAIXE NOSSO APP E DESCUBRA O SEU!!!</p>
-                </a>
-            </div>-->
-            <div class="text">
-                <h3>CONHEÇA NOSSO SITE!!</h3>
-                <a href="templates/catalogo.php" class="btn-link">NAVEGUE POR NOSSO CATÁLOGO</a>
-            </div>
-        </section>
+
+        <aside>
+            <h2>Login no sistema</h2>
+            <h2><span>The Cargos</span></h2>
+            <form action="" method="POST">
+
+                <input type="text" placeholder="Usuário" name="user">
+                <input type="password" placeholder="Senha" name="senha">
+                <input id="btn-login" type="submit" value="Entrar >">
+                
+            </form>
+
+        </aside>
+
+        <article>
+
+            <img src="/the_cargos/static/images/ascalcas.png" alt="as-calcas">
+
+        </article>
+
     </main>
+
+    <footer>
+
+        <div id="footer_coopyright">
+
+            &#169
+            2023 all rights reserved
+
+        </div>
+
+    </footer>
+
 </body>
 
 </html>
