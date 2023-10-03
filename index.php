@@ -1,48 +1,7 @@
 <?php
 
-$usuario = 'root';
-$senha = '';
-$database = 'the_cargos';
-$host = 'localhost';
-
-$conn = mysqli_connect($host, $usuario, $senha, $database);
-
-if ($conn->error) {
-    die("Falha ao conectar ao banco de dados " . $conn->error);
-}
-
-if(isset($_POST['user']) || isset($_POST['senha'])) {
-
-    if (strlen($_POST['user']) == 0) {
-        echo "Preencha o usuário";
-    } else if (strlen($_POST['senha']) == 0) {
-        echo "Preencha a senha";
-    } else {
-        $user = $conn->real_escape_string($_POST['user']);
-        $senha = $conn->real_escape_string($_POST['senha']);
-
-        $sql_code = "SELECT * FROM admin WHERE user = '$user' AND senha = '$senha'";
-        $sql_query = $conn->query($sql_code) or die("Falha na conexão do código SQL: " . $conn->error);
-
-        $quantidade = $sql_query->num_rows;
-
-        if($quantidade==1) {
-            $adm = $sql_query->fetch_assoc();
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-
-            $_SESSION['Id_Adm'] = $adm['Id_Adm'];
-            $_SESSION['user'] = $adm['user'];
-
-            header("Location: /the_cargos/templates/dashboard.php");
-
-        } else {
-            echo "Falha ao logar! E-mail ou senha incorretos!";
-        }
-    }
-
-}
+include('./static/php/conexao.php');
+include('./static/php/login.php');
 
 ?>
 <!DOCTYPE html>
