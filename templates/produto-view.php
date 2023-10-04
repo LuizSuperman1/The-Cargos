@@ -125,8 +125,7 @@ include("../static/php/protect.php");
                     <td>
                         <a class="link-prod"
                             href="../templates/produto-edit.php?id=<?php echo $dados['Id_Prod'] ?>">Editar</a>
-                        <a class="link-prod"
-                            href="../templates/produto-delete.php?id=<?php echo $dados['Id_Prod'] ?>">Excluir</a>
+                        <a class="link-prod" onclick="if(confirm('Tem certeza que deseja excluir?')){location.href='/the_cargos/static/php/prod-delete.php?id=<?php echo $dados['Id_Prod']?>';}else{false;}">Excluir</a>
                     </td>
                 </tr>
                 <?php
