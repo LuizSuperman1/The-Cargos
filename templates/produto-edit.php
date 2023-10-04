@@ -25,37 +25,37 @@ include("../static/php/protect.php");
         <form action="">
             <div>
                 <h2 class="digite-text">Id do produto que queira editar</h2>
-                <input type="number" placeholder="Id" name="search-id" value="<?php if (isset($_GET['search-id'])) echo $_GET['search-id'] ?>">
-            </div>
-        </form><br>
-        <div>
-            <?php
-            if (isset($_GET['search-id'])) {
-                $pesquisa = $conn->real_escape_string($_GET['search-id']);
-                $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
+                <input type="number" placeholder="Id" name="search-id"
+                    value="<?php if (isset($_GET['search-id']))
+                        echo $_GET['search-id'] ?>">
+                </div>
+            </form><br>
+            <div>
+                <?php
+                    if (isset($_GET['search-id'])) {
+                        $pesquisa = $_GET['search-id'];
+                        $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
 
-                $sql_query_search = $conn->query($sql_code_search) or die("Erro ao pesquisar produto! " . $conn->error);
-                $dados = $sql_query_search->fetch_assoc();
-            } else {
-                $pesquisa = $_REQUEST['id'];
-                $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
+                        $sql_query_search = $conn->prepare($sql_code_search);
+                        $sql_query_search->execute();
+                        $dados = $sql_query_search->fetch(PDO::FETCH_ASSOC);
+                    } else {
+                        $pesquisa = $_REQUEST['id'];
+                        $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
 
-                $sql_query_search = $conn->query($sql_code_search) or die("Erro ao pesquisar produto! " . $conn->error);
-                $dados = $sql_query_search->fetch_assoc();
-            }
-            ?>
+                        $sql_query_search = $conn->prepare($sql_code_search);
+                        $sql_query_search->execute();
+                        $dados = $sql_query_search->fetch(PDO::FETCH_ASSOC);
+                    }
+                    ?>
             <form action="../static/php/prod-edit.php" method="POST">
-                <input type="hidden" name="prod-id" value="<?php $pesquisa ?>">
-                <input type="text" placeholder="Nome" name="nome-prod" value="<?php
-                echo $dados['Nome'] ?>">
-                <input type="number" placeholder="Quantidade" name="quant-prod" value="<?php
-                echo $dados['Quantidade'] ?>">
-                <input type="number" placeholder="Custo" name="custo-prod" value="<?php
-                echo $dados['Custo'] ?>">
-                <input type="number" placeholder="Preço" name="preco-prod" value="<?php
-                echo $dados['Preco'] ?>">
-                <input type="text" placeholder="Tamanho" name="tam-prod" value="<?php
-                echo $dados['Tamanho'] ?>">
+                <input type="hidden" name="prod-id" value="<?php print $pesquisa ?>">
+                <input type="text" placeholder="Nome" name="nome-prod" value="<?php print $dados['Nome'] ?>">
+                <input type="number" placeholder="Quantidade" name="quant-prod"
+                    value="<?php print $dados['Quantidade'] ?>">
+                <input type="text" placeholder="Custo" name="custo-prod" value="<?php print $dados['Custo'] ?>">
+                <input type="text" placeholder="Preço" name="preco-prod" value="<?php print $dados['Preco'] ?>">
+                <input type="text" placeholder="Tamanho" name="tam-prod" value="<?php print $dados['Tamanho'] ?>">
                 <!--<input type="file" accept="image/*" name="image-prod" value="<?php /* if (isset($_GET['search-id'])) echo $dados['Imagem'] */?>">-->
         </div>
         <div id="botoes">
