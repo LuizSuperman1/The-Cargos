@@ -14,6 +14,11 @@ include("../static/php/protect.php");
     <link rel="stylesheet" href="../static/css/style-estoque-antigo.css">
     <link rel="stylesheet" href="../static/css/style-estoque.css">
     <link rel="stylesheet" href="../static/css/style-sidebar.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <title>Listagem de Produtos</title>
 </head>
 
@@ -27,6 +32,7 @@ include("../static/php/protect.php");
             <select name="cat-choice">
                 <option value="id">Id</option>
                 <option value="nome">Nome</option>
+                <option value="nome">Modelo</option>
                 <option value="tamanho">Tamanho</option>
                 <option value="custo">Custo</option>
                 <option value="preco">Preço</option>
@@ -65,6 +71,9 @@ include("../static/php/protect.php");
                         Nome
                     </td>
                     <td>
+                        Modelo
+                    </td>
+                    <td>
                         Tam.
                     </td>
                     <td>
@@ -90,6 +99,9 @@ include("../static/php/protect.php");
                             break;
                         case 'nome':
                             $cat_choose = "Nome LIKE '%" . $pesquisa . "%'";
+                            break;
+                        case 'modelo':
+                            $cat_choose = "Modelo LIKE '%" . $pesquisa . "%'";
                             break;
                         case 'tamanho':
                             $cat_choose = "Tamanho LIKE '%" . $pesquisa . "%'";
@@ -155,6 +167,9 @@ include("../static/php/protect.php");
                     </td>-->
                     <td>
                         <?php print $dados['Nome']; ?>
+                    </td>
+                    <td>
+                        <?php print $dados['Modelo']; ?>
                     </td>
                     <td>
                         <?php print $dados['Tamanho']; ?>

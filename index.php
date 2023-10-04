@@ -1,7 +1,6 @@
 <?php
 
 include('./static/php/conexao.php');
-include('./static/php/login.php');
 
 ?>
 <!DOCTYPE html>
@@ -35,8 +34,7 @@ include('./static/php/login.php');
         <aside>
             <h2>Login no sistema</h2>
             <h2><span>The Cargos</span></h2>
-            <form action="" method="POST">
-
+            <form action="./static/php/login.php" method="POST">
                 <input type="text" placeholder="Usuário" name="user">
                 <input type="password" placeholder="Senha" name="senha">
                 <input id="btn-login" type="submit" value="Entrar >">

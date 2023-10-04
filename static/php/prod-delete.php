@@ -15,4 +15,7 @@ $prodUpdate->execute();
 if ($prodUpdate) {
     print "<script>alert('Deletado com sucesso!')</script>";
     print "<script>location.href='/the_cargos/templates/produto-view.php'</script>";
+} else {
+    print "<script>alert('Deletado com sucesso!')</script>";
+    print "<script>location.href='/the_cargos/templates/produto-view.php'</script>";
 }
