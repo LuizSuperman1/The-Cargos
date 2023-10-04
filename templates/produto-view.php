@@ -73,7 +73,6 @@ include("../static/php/protect.php");
             } else {
                 $sql_code = "SELECT * FROM calcas";
             }
-            $sql_query = $conn->query($sql_code);
 
             while ($dados = $sql_query->fetch_object()) {
                 ?>

@@ -13,9 +13,9 @@ $custo = filter_input(INPUT_POST, 'custo-prod', FILTER_SANITIZE_NUMBER_INT);
 $preco = filter_input(INPUT_POST, 'preco-prod', FILTER_SANITIZE_NUMBER_INT);
 $tamanho = filter_input(INPUT_POST, 'tam-prod', FILTER_SANITIZE_STRING);
 
-$queryProdEdit = "UPDATE `calcas` SET `Nome`='$nome',`Tamanho`='$tamanho',`Custo`='$custo',`Preco`='$preco',`Quantidade`='$quant' WHERE `Id_Prod`='$prodid'";
-$prodUpdate = mysqli_query($conn, $queryProdEdit);
-$prodRow = $prodUpdate->num_rows;
+$queryProdEdit = "UPDATE calcas SET Nome='$nome',Tamanho='$tamanho',Custo='$custo',Preco='$preco',Quantidade='$quant' WHERE Id_Prod='$prodid'";
+$prodUpdate = $conn->prepare($queryProdEdit);
+$prodUpdate->execute();
 
 if ($prodRow==1) {
     print "<script>alert('Editado com sucesso!')</script>";

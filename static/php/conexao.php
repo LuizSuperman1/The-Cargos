@@ -1,12 +1,32 @@
 <?php
 
-$usuario = 'root';
-$senha = '';
-$database = 'the_cargos';
-$host = 'localhost';
+/* $serverName = "TheCargos.mssql.somee.com";
+$database = 'TheCargos';
+$uid = 'pongo013_SQLLogin_1';
+$pass = '5uwmp9opl8';
 
-$conn = mysqli_connect($host, $usuario, $senha, $database);
+$connection = [
+    "Database" => $database,
+    "Uid" => $uid,
+    "PWD" => $pass
+];
 
-if ($conn->error) {
-    die("Falha ao conectar ao banco de dados " . $conn->error);
+$conn = sqlsrv_connect($serverName, $connection);
+if (!$conn) {
+    echo 'Conexao falha!';
+    die(print_r(sqlsrv_errors(), true));
+} */
+
+$serverName = "TheCargos.mssql.somee.com";
+$databaseName = 'TheCargos';
+$uid = 'pongo013_SQLLogin_1';
+$pwd = '5uwmp9opl8';
+
+try {
+    $conn = new PDO("sqlsrv:Server=$serverName;Database=$databaseName", $uid, $pwd);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "Conexão bem-sucedida!";
+
+} catch (PDOException $e) {
+    die("Erro na conexão: " . $e->getMessage());
 }
