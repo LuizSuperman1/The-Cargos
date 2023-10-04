@@ -11,10 +11,9 @@ if (isset($_POST['user']) || isset($_POST['senha'])) {
         $senha = $_POST['senha'];
 
         $sql_code = "SELECT * FROM admin WHERE user = '$user' AND senha = '$senha'";
-        $sql_query = $conn->prepare($sql_code);
-        $sql_query->execute();
+        $sql_query = sqlsrv_prepare($conn, $sql_code);
 
-        if ($sql_query) {
+        if (sqlsrv_execute($sql_query)) {
             if (!isset($_SESSION)) {
                 session_start();
             }
