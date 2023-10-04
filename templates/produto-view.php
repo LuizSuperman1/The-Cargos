@@ -62,7 +62,7 @@ include("../static/php/protect.php");
                 </tr>
                 <?php
             if (isset($_GET['busca'])) {
-                $pesquisa = $conn->real_escape_string($_GET['busca']);
+                $pesquisa = $_GET['busca'];
                 $sql_code = "SELECT * FROM calcas WHERE
                     Id_Prod LIKE '%$pesquisa%' OR
                     Nome LIKE '%$pesquisa%' OR
@@ -92,10 +92,10 @@ include("../static/php/protect.php");
                         <?php print $dados['Tamanho']; ?>
                     </td>
                     <td>
-                        <?php print $dados['Custo']; ?>
+                        <?php print "R$ " . $dados['Custo']; ?>
                     </td>
                     <td>
-                        <?php print $dados['Preco']; ?>
+                        <?php print "R$ " . $dados['Preco']; ?>
                     </td>
                     <td>
                         <?php print $dados['Quantidade']; ?>
