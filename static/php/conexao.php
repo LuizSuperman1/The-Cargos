@@ -1,18 +1,12 @@
 <?php
 
-$serverName = "TheCargos.mssql.somee.com";
-$database = 'TheCargos';
-$uid = 'pongo013_SQLLogin_1';
-$pass = '5uwmp9opl8';
+$usuario = 'root';
+$senha = '';
+$database = 'the_cargos';
+$host = 'localhost';
 
-$connection = [
-    "Database" => $database,
-    "Uid" => $uid,
-    "PWD" => $pass
-];
+$conn = mysqli_connect($host, $usuario, $senha, $database);
 
-$conn = sqlsrv_connect($serverName, $connection);
-if (!$conn) {
-    echo 'Conexao falha!';
-    die(print_r(sqlsrv_errors(), true));
+if ($conn->error) {
+    die("Falha ao conectar ao banco de dados " . $conn->error);
 }

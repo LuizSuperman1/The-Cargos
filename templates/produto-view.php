@@ -62,7 +62,7 @@ include("../static/php/protect.php");
                 </tr>
                 <?php
             if (isset($_GET['busca'])) {
-                $pesquisa = $_GET['busca'];
+                $pesquisa = $conn->real_escape_string($_GET['busca']);
                 $sql_code = "SELECT * FROM calcas WHERE
                     Id_Prod LIKE '%$pesquisa%' OR
                     Nome LIKE '%$pesquisa%' OR
@@ -73,7 +73,7 @@ include("../static/php/protect.php");
             } else {
                 $sql_code = "SELECT * FROM calcas";
             }
-            $sql_query = sqlsrv_prepare($conn, $sql_code);
+            $sql_query = $conn->query($sql_code);
 
             while ($dados = $sql_query->fetch_object()) {
                 ?>
