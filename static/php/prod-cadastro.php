@@ -6,11 +6,11 @@ if (!isset($_SESSION)) {
 
 include_once('conexao.php');
 
-$nome = filter_input(INPUT_POST, 'nome-prod', FILTER_SANITIZE_STRING);
-$quant = filter_input(INPUT_POST, 'quant-prod', FILTER_SANITIZE_STRING);
-$custo = filter_input(INPUT_POST, 'custo-prod', FILTER_SANITIZE_STRING);
-$preco = filter_input(INPUT_POST, 'preco-prod', FILTER_SANITIZE_STRING);
-$tamanho = filter_input(INPUT_POST, 'tam-prod', FILTER_SANITIZE_STRING);
+$nome = $_POST['nome-prod'];
+$quant = $_POST['quant-prod'];
+$custo = $_POST['custo-prod'];
+$preco = $_POST['preco-prod'];
+$tamanho = $_POST['tam-prod'];
 //$imagem = $_FILES['imagem-prod']['tmp-name'];
 
 /*--if ($imagem != "none") {
@@ -26,8 +26,13 @@ $tamanho = filter_input(INPUT_POST, 'tam-prod', FILTER_SANITIZE_STRING);
 }--*/
 
 $queryProd = "INSERT INTO calcas (Nome, Tamanho, Custo, Preco, Quantidade/*, Imagem*/) VALUES ('$nome', '$tamanho', '$custo', '$preco', '$quant')";
-$prodResult = mysqli_query($conn, $queryProd);
+$prodResult = $conn->prepare($queryProd);
+$prodResult->execute();
 
-
-
-header('Location: /the_cargos/templates/produto-view.php');
+if ($prodResult) {
+    print "<script>alert('Cadastrado com sucesso!')</script>";
+    print "<script>location.href='/the_cargos/templates/produto-view.php'</script>";
+} else {
+    print "<script>alert('Falha ao cadastrar!')</script>";
+    print "<script>location.href='/the_cargos/templates/produto-view.php'</script>";
+}

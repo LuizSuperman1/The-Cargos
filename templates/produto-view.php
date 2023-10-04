@@ -23,6 +23,14 @@ include("../static/php/protect.php");
     <h1>Listagem de Produtos</h1>
     <div id="wrap">
         <form action="">
+            <label for="cat-label" class="cat-label">Pesquisar por:</label>
+            <select name="cat-choice">
+                <option value="id">Id</option>
+                <option value="nome">Nome</option>
+                <option value="tamanho">Tamanho</option>
+                <option value="custo">Custo</option>
+                <option value="preco">Preço</option>
+            </select>
             <input type="text" value="<?php if (isset($_GET['busca']))
                 echo $_GET['busca'] ?>" name="busca" placeholder="Digite os termos de pesquisa">
                 <button class="btn-search" type="submit">Pesquisar</button>
@@ -61,15 +69,29 @@ include("../static/php/protect.php");
                     </td>
                 </tr>
                 <?php
+
             if (isset($_GET['busca'])) {
                 $pesquisa = $_GET['busca'];
-                $sql_code = "SELECT * FROM calcas WHERE
-                    Id_Prod LIKE '%$pesquisa%' OR
-                    Nome LIKE '%$pesquisa%' OR
-                    Tamanho LIKE '%$pesquisa%' OR
-                    Custo LIKE '%$pesquisa%' OR
-                    Preco LIKE '%$pesquisa%' OR
-                    Quantidade LIKE '%$pesquisa%'";
+                switch ($_GET['cat-choice']) {
+                    case 'id':
+                        $cat_choose = "Id_Prod = '.$pesquisa.'";
+                        break;
+                    case 'nome':
+                        $cat_choose = "Nome = '%.$pesquisa.%'";
+                        break;
+                    case 'tamanho':
+                        $cat_choose = "Tamanho = '.$pesquisa.'";
+                        break;
+                    case 'custo':
+                        $cat_choose = "Custo = '$pesquisa%'";
+                        break;
+                    case 'preco':
+                        $cat_choose = "Preco = '.$pesquisa.%'";
+                        break;
+                    default:
+                        $cat_choose = "Id_Prod = '.$pesquisa.'";
+                }
+                $sql_code = "SELECT * FROM calcas WHERE $cat_choose";
             } else {
                 $sql_code = "SELECT * FROM calcas";
             }
@@ -101,8 +123,10 @@ include("../static/php/protect.php");
                         <?php print $dados['Quantidade']; ?>
                     </td>
                     <td>
-                        <a class="link-prod" href="../templates/produto-edit.php?id=<?php echo $dados['Id_Prod'] ?>">Editar</a>
-                        <a class="link-prod" href="../templates/produto-delete.php?id=<?php echo $dados['Id_Prod'] ?>">Excluir</a>
+                        <a class="link-prod"
+                            href="../templates/produto-edit.php?id=<?php echo $dados['Id_Prod'] ?>">Editar</a>
+                        <a class="link-prod"
+                            href="../templates/produto-delete.php?id=<?php echo $dados['Id_Prod'] ?>">Excluir</a>
                     </td>
                 </tr>
                 <?php
