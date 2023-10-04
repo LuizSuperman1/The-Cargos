@@ -73,34 +73,36 @@ include("../static/php/protect.php");
             } else {
                 $sql_code = "SELECT * FROM calcas";
             }
+            $sql_query = $conn->prepare($sql_code);
+            $sql_query->execute();
 
-            while ($dados = $sql_query->fetch_object()) {
+            while ($dados = $sql_query->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                 <tr>
                     <td>
-                        <?php print $dados->Id_Prod; ?>
+                        <?php print $dados['Id_Prod']; ?>
                     </td>
                     <td>
                         <img class="img-prod" src="../static/images/calca-tactel-cinza.jpeg" alt="">
                     </td>
                     <td>
-                        <?php print $dados->Nome; ?>
+                        <?php print $dados['Nome']; ?>
                     </td>
                     <td>
-                        <?php print $dados->Tamanho; ?>
+                        <?php print $dados['Tamanho']; ?>
                     </td>
                     <td>
-                        <?php print $dados->Custo; ?>
+                        <?php print $dados['Custo']; ?>
                     </td>
                     <td>
-                        <?php print $dados->Preco; ?>
+                        <?php print $dados['Preco']; ?>
                     </td>
                     <td>
-                        <?php print $dados->Quantidade; ?>
+                        <?php print $dados['Quantidade']; ?>
                     </td>
                     <td>
-                        <a class="link-prod" href="../templates/produto-edit.php?id=<?php echo $dados->Id_Prod ?>">Editar</a>
-                        <a class="link-prod" href="../templates/produto-delete.php?id=<?php echo $dados->Id_Prod ?>">Excluir</a>
+                        <a class="link-prod" href="../templates/produto-edit.php?id=<?php echo $dados['Id_Prod'] ?>">Editar</a>
+                        <a class="link-prod" href="../templates/produto-delete.php?id=<?php echo $dados['Id_Prod'] ?>">Excluir</a>
                     </td>
                 </tr>
                 <?php

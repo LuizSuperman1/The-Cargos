@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['user']) || isset($_POST['senha'])) {
+if(isset($_POST['user']) || isset($_POST['senha'])) {
 
     if (strlen($_POST['user']) == 0) {
         echo "Preencha o usuário";
@@ -11,16 +11,17 @@ if (isset($_POST['user']) || isset($_POST['senha'])) {
         $senha = $_POST['senha'];
 
         $sql_code = "SELECT * FROM admin WHERE user = '$user' AND senha = '$senha'";
-        $sql_query = sqlsrv_prepare($conn, $sql_code);
+        $sql_query = $conn->prepare($sql_code);
+        $sql_query->execute();
 
-        if (sqlsrv_execute($sql_query)) {
+        if($sql_query) {
+            $adm = $sql_query->fetch(PDO::FETCH_ASSOC);
             if (!isset($_SESSION)) {
                 session_start();
             }
+            $_SESSION['user'] = $_POST['user'];
 
-            $_SESSION['user'] = $user;
-
-            header("Location: ./templates/produto-view.php");
+            header("Location: /the_cargos/templates/produto-view.php");
 
         } else {
             echo "Falha ao logar! E-mail ou senha incorretos!";
