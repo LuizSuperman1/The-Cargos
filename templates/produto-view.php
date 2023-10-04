@@ -30,6 +30,18 @@ include("../static/php/protect.php");
                 <option value="tamanho">Tamanho</option>
                 <option value="custo">Custo</option>
                 <option value="preco">Preço</option>
+                <option value="quantidade">Quantidade</option>
+            </select>
+            <label for="ordem-label" class="ordem-label">Ordenar:</label>
+            <select name="ordem-choice">
+                <option value="alfabeto">Alfabeticamente</option>
+                <option value="id">Id</option>
+                <option value="menor-custo">Menor custo</option>
+                <option value="maior-custo">Maior custo</option>
+                <option value="menor-preco">Menor preço</option>
+                <option value="maior-preco">Maior preço</option>
+                <option value="menor-quant">Menor quantidade</option>
+                <option value="maior-quant">Maior quantidade</option>
             </select>
             <input type="text" value="<?php if (isset($_GET['busca']))
                 echo $_GET['busca'] ?>" name="busca" placeholder="Digite os termos de pesquisa">
@@ -46,9 +58,9 @@ include("../static/php/protect.php");
                     <td>
                         Código
                     </td>
-                    <td>
+                    <!--<td>
                         Imagem
-                    </td>
+                    </td>-->
                     <td>
                         Nome
                     </td>
@@ -69,29 +81,63 @@ include("../static/php/protect.php");
                     </td>
                 </tr>
                 <?php
-
             if (isset($_GET['busca'])) {
-                $pesquisa = $_GET['busca'];
-                switch ($_GET['cat-choice']) {
-                    case 'id':
-                        $cat_choose = "Id_Prod = '.$pesquisa.'";
-                        break;
-                    case 'nome':
-                        $cat_choose = "Nome = '%.$pesquisa.%'";
-                        break;
-                    case 'tamanho':
-                        $cat_choose = "Tamanho = '.$pesquisa.'";
-                        break;
-                    case 'custo':
-                        $cat_choose = "Custo = '$pesquisa%'";
-                        break;
-                    case 'preco':
-                        $cat_choose = "Preco = '.$pesquisa.%'";
-                        break;
-                    default:
-                        $cat_choose = "Id_Prod = '.$pesquisa.'";
+                if (strlen($_GET['busca']) > 0) {
+                    $pesquisa = $_GET['busca'];
+                    switch ($_GET['cat-choice']) {
+                        case 'id':
+                            $cat_choose = "Id_Prod = '" . $pesquisa . "'";
+                            break;
+                        case 'nome':
+                            $cat_choose = "Nome LIKE '%" . $pesquisa . "%'";
+                            break;
+                        case 'tamanho':
+                            $cat_choose = "Tamanho LIKE '%" . $pesquisa . "%'";
+                            break;
+                        case 'custo':
+                            $cat_choose = "Custo LIKE '%" . $pesquisa . "%'";
+                            break;
+                        case 'preco':
+                            $cat_choose = "Preco LIKE '%" . $pesquisa . "%'";
+                            break;
+                        case 'quantidade':
+                            $cat_choose = "Quantidade = '%" . $pesquisa . "%'";
+                            break;
+                        default:
+                            $cat_choose = "Id_Prod = '" . $pesquisa . "'";
+                    }
+                    switch ($_GET['ordem-choice']) {
+                        case 'alfabeto':
+                            $ordem_choose = "ORDER BY Nome ASC";
+                            break;
+                        case 'id':
+                            $ordem_choose = "ORDER BY Id_Prod ASC";
+                            break;
+                        case 'menor-custo':
+                            $ordem_choose = "ORDER BY Custo DESC ";
+                            break;
+                        case 'maior-custo':
+                            $ordem_choose = "ORDER BY Custo ASC";
+                            break;
+                        case 'menor-preco':
+                            $ordem_choose = "ORDER BY Preco ASC";
+                            break;
+                        case 'maior-preco':
+                            $ordem_choose = "ORDER BY Preco DESC";
+                            break;
+                        case 'menor-quantidade':
+                            $ordem_choose = "ORDER BY Quantidade ASC";
+                            break;
+                        case 'maior-quantidade':
+                            $ordem_choose = "ORDER BY Quantidade DESC";
+                            break;
+                        default:
+                            $ordem_choose = "ORDER BY Nome ASC";
+                    }
+                    $sql_code = "SELECT * FROM calcas WHERE $cat_choose $ordem_choose";
+                } else {
+                    $sql_code = "SELECT * FROM calcas";
                 }
-                $sql_code = "SELECT * FROM calcas WHERE $cat_choose";
             } else {
                 $sql_code = "SELECT * FROM calcas";
             }
@@ -104,9 +150,9 @@ include("../static/php/protect.php");
                     <td>
                         <?php print $dados['Id_Prod']; ?>
                     </td>
-                    <td>
+                    <!--<td>
                         <img class="img-prod" src="../static/images/calca-tactel-cinza.jpeg" alt="">
-                    </td>
+                    </td>-->
                     <td>
                         <?php print $dados['Nome']; ?>
                     </td>
@@ -125,7 +171,8 @@ include("../static/php/protect.php");
                     <td>
                         <a class="link-prod"
                             href="../templates/produto-edit.php?id=<?php echo $dados['Id_Prod'] ?>">Editar</a>
-                        <a class="link-prod" onclick="if(confirm('Tem certeza que deseja excluir?')){location.href='/the_cargos/static/php/prod-delete.php?id=<?php echo $dados['Id_Prod']?>';}else{false;}">Excluir</a>
+                        <a class="link-prod"
+                            onclick="if(confirm('Tem certeza que deseja excluir?')){location.href='/the_cargos/static/php/prod-delete.php?id=<?php echo $dados['Id_Prod'] ?>';}else{false;}">Excluir</a>
                     </td>
                 </tr>
                 <?php
