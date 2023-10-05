@@ -32,24 +32,23 @@ include("../static/php/protect.php");
             <select name="cat-choice">
                 <option value="id">Id</option>
                 <option value="nome">Nome</option>
-                <option value="nome">Modelo</option>
+                <option value="modelo">Modelo</option>
                 <option value="tamanho">Tamanho</option>
                 <option value="custo">Custo</option>
                 <option value="preco">Preço</option>
-                <option value="quantidade">Quantidade</option>
             </select>
             <label for="ordem-label" class="ordem-label">Ordenar:</label>
             <select name="ordem-choice">
-                <option value="alfabeto">Alfabeticamente</option>
+                <option value="alfabeto">Alfabética</option>
                 <option value="id">Id</option>
-                <option value="menor-custo">Menor custo</option>
-                <option value="maior-custo">Maior custo</option>
-                <option value="menor-preco">Menor preço</option>
-                <option value="maior-preco">Maior preço</option>
-                <option value="menor-quant">Menor quantidade</option>
-                <option value="maior-quant">Maior quantidade</option>
+                <option value="menor-custo">Menor Custo</option>
+                <option value="maior-custo">Maior Custo</option>
+                <option value="menor-preco">Menor Preço</option>
+                <option value="maior-preco">Maior Preço</option>
+                <option value="menor-quantidade">Menor Quantidade</option>
+                <option value="maior-quantidade">Maior Quantidade</option>
             </select>
-            <input type="text" value="<?php if (isset($_GET['busca']))
+            <input type="text" class="p-3" value="<?php if (isset($_GET['busca']))
                 echo $_GET['busca'] ?>" name="busca" placeholder="Digite os termos de pesquisa">
                 <button class="btn-search" type="submit">Pesquisar</button>
             </form>
@@ -70,9 +69,9 @@ include("../static/php/protect.php");
                     <td>
                         Nome
                     </td>
-                    <td>
+                    <!--<td>
                         Modelo
-                    </td>
+                    </td>-->
                     <td>
                         Tam.
                     </td>
@@ -90,6 +89,7 @@ include("../static/php/protect.php");
                     </td>
                 </tr>
                 <?php
+
             if (isset($_GET['busca'])) {
                 if (strlen($_GET['busca']) > 0) {
                     $pesquisa = $_GET['busca'];
@@ -99,9 +99,6 @@ include("../static/php/protect.php");
                             break;
                         case 'nome':
                             $cat_choose = "Nome LIKE '%" . $pesquisa . "%'";
-                            break;
-                        case 'modelo':
-                            $cat_choose = "Modelo LIKE '%" . $pesquisa . "%'";
                             break;
                         case 'tamanho':
                             $cat_choose = "Tamanho LIKE '%" . $pesquisa . "%'";
@@ -168,9 +165,9 @@ include("../static/php/protect.php");
                     <td>
                         <?php print $dados['Nome']; ?>
                     </td>
-                    <td>
+                    <!--<td>
                         <?php print $dados['Modelo']; ?>
-                    </td>
+                    </td>-->
                     <td>
                         <?php print $dados['Tamanho']; ?>
                     </td>
@@ -186,8 +183,7 @@ include("../static/php/protect.php");
                     <td>
                         <a class="link-prod"
                             href="../templates/produto-edit.php?id=<?php echo $dados['Id_Prod'] ?>">Editar</a>
-                        <a class="link-prod"
-                            onclick="if(confirm('Tem certeza que deseja excluir?')){location.href='/the_cargos/static/php/prod-delete.php?id=<?php echo $dados['Id_Prod'] ?>';}else{false;}">Excluir</a>
+                        <a class="link-prod" onclick="if(confirm('Tem certeza que deseja excluir?')){location.href='/the_cargos/static/php/prod-delete.php?id=<?php echo $dados['Id_Prod']?>';}else{false;}">Excluir</a>
                     </td>
                 </tr>
                 <?php

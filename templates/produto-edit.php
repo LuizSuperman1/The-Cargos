@@ -55,7 +55,6 @@ include("../static/php/protect.php");
             }
             ?>
             <form action="../static/php/prod-edit.php" method="POST">
-
                 <input type="hidden" name="prod-id" value="<?php echo $pesquisa ?>">
                 <div class="row mb-3">
                     <label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
@@ -74,14 +73,14 @@ include("../static/php/protect.php");
                 <div class="row mb-3">
                     <label for="inputCusto" class="col-sm-2 col-form-label">Custo de compra:</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputCusto" name="custo-prod" value="<?php
+                        <input type="text" class="form-control" id="inputCusto" name="custo-prod" value="<?php
                         echo $dados['Custo'] ?>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPreco" class="col-sm-2 col-form-label">Preço de venda:</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputPreco" name="preco-prod" value="<?php
+                        <input type="text" class="form-control" id="inputPreco" name="preco-prod" value="<?php
                         echo $dados['Preco'] ?>">
                     </div>
                 </div>

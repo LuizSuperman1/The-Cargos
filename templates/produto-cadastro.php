@@ -25,21 +25,46 @@ include("../static/php/protect.php");
 
 <body>
     <?php include("sidebar1.php") ?>
-            <h1>Cadastrar Novo Produto</h1>
-            <div id="wrap">
-                <form action="../static/php/prod-cadastro.php" method="POST">
-                    <input type="text" placeholder="Nome:" name="nome-prod">
-                    <input type="number" placeholder="Quantidade" name="quant-prod">
-                    <input type="number" placeholder="Custo" name="custo-prod">
-                    <input type="number" placeholder="Preço" name="preco-prod">
-                    <input type="text" placeholder="Tamanho" name="tam-prod">
-                    <!--<input type="file" accept="image/*" name="image-prod">-->
-                    <div id="botoes">
-                        <button type="submit">Cadastrar</button>
-                    </div>
-                </form>
+    <h1>Cadastrar Novo Produto</h1>
+    <div id="wrap">
+        <form action="../static/php/prod-cadastro.php" method="POST">
+
+            <div class="row mb-3">
+                <label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputNome" name="nome-prod">
+                </div>
             </div>
-            <?php include("sidebar2.php") ?>
+            <div class="row mb-3">
+                <label for="inputTamanho" class="col-sm-2 col-form-label">Tamanho:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputTamanho" name="tam-prod" maxlength="3">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputCusto" class="col-sm-2 col-form-label">Custo de compra:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputCusto" name="custo-prod">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPreco" class="col-sm-2 col-form-label">Preço de venda:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPreco" name="preco-prod">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputQuant" class="col-sm-2 col-form-label">Em estoque:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputQuant" name="quant-prod">
+                </div>
+
+                <div id="botoes">
+                    <button type="submit">Cadastrar</button>
+                </div>
+        </form>
+    </div>
+    <?php include("sidebar2.php") ?>
 </body>
 
 </html>
