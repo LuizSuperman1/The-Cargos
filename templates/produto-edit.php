@@ -26,7 +26,7 @@ include("../static/php/protect.php");
 <body>
     <?php include("sidebar1.php") ?>
     <h1>Editar Produto</h1>
-    <div id="wrap">
+    <div class="div-form">
         <form action="">
             <div class="row mb-3">
                 <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
@@ -36,63 +36,62 @@ include("../static/php/protect.php");
                 </div>
             </div>
         </form><br>
-        <div>
-            <?php
-            if (isset($_GET['search-id'])) {
-                $pesquisa = $_GET['search-id'];
-                $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
+        <?php
+        if (isset($_GET['search-id'])) {
+            $pesquisa = $_GET['search-id'];
+            $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
 
-                $sql_query_search = $conn->prepare($sql_code_search);
-                $sql_query_search->execute();
-                $dados = $sql_query_search->fetch(PDO::FETCH_ASSOC);
-            } else {
-                $pesquisa = $_REQUEST['id'];
-                $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
+            $sql_query_search = $conn->prepare($sql_code_search);
+            $sql_query_search->execute();
+            $dados = $sql_query_search->fetch(PDO::FETCH_ASSOC);
+        } else {
+            $pesquisa = $_REQUEST['id'];
+            $sql_code_search = "SELECT * FROM calcas WHERE Id_Prod LIKE '%$pesquisa%'";
 
-                $sql_query_search = $conn->prepare($sql_code_search);
-                $sql_query_search->execute();
-                $dados = $sql_query_search->fetch(PDO::FETCH_ASSOC);
-            }
-            ?>
-            <form action="../static/php/prod-edit.php" method="POST">
-                <input type="hidden" name="prod-id" value="<?php echo $pesquisa ?>">
-                <div class="row mb-3">
-                    <label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputNome" name="nome-prod" value="<?php
-                        echo $dados['Nome'] ?>">
-                    </div>
+            $sql_query_search = $conn->prepare($sql_code_search);
+            $sql_query_search->execute();
+            $dados = $sql_query_search->fetch(PDO::FETCH_ASSOC);
+        }
+        ?>
+        <form action="../static/php/prod-edit.php" method="POST">
+            <input type="hidden" name="prod-id" value="<?php echo $pesquisa ?>">
+            <div class="row mb-3">
+                <label for="inputNome" class="col-sm-2 col-form-label">Nome:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputNome" name="nome-prod" value="<?php
+                    echo $dados['Nome'] ?>">
                 </div>
-                <div class="row mb-3">
-                    <label for="inputTamanho" class="col-sm-2 col-form-label">Tamanho:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputTamanho" name="tam-prod" value="<?php
-                        echo $dados['Tamanho'] ?>" maxlength="3">
-                    </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputTamanho" class="col-sm-2 col-form-label">Tamanho:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputTamanho" name="tam-prod" value="<?php
+                    echo $dados['Tamanho'] ?>" maxlength="3">
                 </div>
-                <div class="row mb-3">
-                    <label for="inputCusto" class="col-sm-2 col-form-label">Custo de compra:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputCusto" name="custo-prod" value="<?php
-                        echo $dados['Custo'] ?>">
-                    </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputCusto" class="col-sm-2 col-form-label">Custo de compra:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputCusto" name="custo-prod" value="<?php
+                    echo $dados['Custo'] ?>">
                 </div>
-                <div class="row mb-3">
-                    <label for="inputPreco" class="col-sm-2 col-form-label">Preço de venda:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPreco" name="preco-prod" value="<?php
-                        echo $dados['Preco'] ?>">
-                    </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPreco" class="col-sm-2 col-form-label">Preço de venda:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPreco" name="preco-prod" value="<?php
+                    echo $dados['Preco'] ?>">
                 </div>
-                <div class="row mb-3">
-                    <label for="inputQuant" class="col-sm-2 col-form-label">Em estoque:</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputQuant" name="quant-prod" value="<?php
-                        echo $dados['Quantidade'] ?>">
-                    </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputQuant" class="col-sm-2 col-form-label">Em estoque:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputQuant" name="quant-prod" value="<?php
+                    echo $dados['Quantidade'] ?>">
                 </div>
+            </div>
 
-                <!--<input type="hidden" name="prod-id" value="<?php echo $pesquisa ?>">
+            <!--<input type="hidden" name="prod-id" value="<?php echo $pesquisa ?>">
                 <label for="nome-prod">Nome:</label>
                 <input type="text" placeholder="Nome" name="nome-prod" value="<?php
                 echo $dados['Nome'] ?>"><br>
@@ -108,11 +107,11 @@ include("../static/php/protect.php");
                 <label for="tam-prod">Tamanho:</label>
                 <input type="text" placeholder="Tamanho" name="tam-prod" value="<?php
                 echo $dados['Tamanho'] ?>">-->
-                <!--<input type="file" accept="image/*" name="image-prod" value="<?php /* if (isset($_GET['search-id'])) echo $dados['Imagem'] */?>">-->
-        </div>
-        <div id="botoes">
-            <button type="submit">Editar</button>
-        </div>
+            <!--<input type="file" accept="image/*" name="image-prod" value="<?php /* if (isset($_GET['search-id'])) echo $dados['Imagem'] */?>">-->
+
+            <div id="botoes">
+                <button type="submit">Editar</button>
+            </div>
         </form>
     </div>
     <?php include("sidebar2.php") ?>

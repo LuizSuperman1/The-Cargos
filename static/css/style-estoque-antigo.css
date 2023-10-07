@@ -20,6 +20,10 @@ h1{
     margin-left: 2%;
 }
 
+#botoes a {
+    padding: 4px;
+}
+
 .link-prod {
     width: 30%;
     height: 35px;
