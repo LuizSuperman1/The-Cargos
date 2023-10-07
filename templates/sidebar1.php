@@ -13,7 +13,7 @@
             <span class="tooltip">Listagem de Produtos</span>
         </li>
         <li>
-            <a href="produto-view.php">
+            <a href="funcionario-view.php">
                 <i class='bx bx-user'></i>
                 <span class="links_name">Funcionários</span>
             </a>

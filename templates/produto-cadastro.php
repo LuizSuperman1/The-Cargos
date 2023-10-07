@@ -35,6 +35,12 @@ include("../static/php/protect.php");
                     <input type="text" class="form-control" id="inputNome" name="nome-prod">
                 </div>
             </div>
+            <!--<div class="row mb-3">
+                <label for="inputNome" class="col-sm-2 col-form-label">Modelo:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputNome" name="model-prod">
+                </div>
+            </div>-->
             <div class="row mb-3">
                 <label for="inputTamanho" class="col-sm-2 col-form-label">Tamanho:</label>
                 <div class="col-sm-10">
