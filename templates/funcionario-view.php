@@ -73,6 +73,9 @@ include("../static/php/protect.php");
                     <td>
                         Acesso
                     </td>
+                    <td>
+                        Ações
+                    </td>
                 </tr>
                 <?php
 
@@ -124,7 +127,6 @@ include("../static/php/protect.php");
                     <td>
                         <?php print $dados['Acesso']; ?>
                     </td>
-                    <td>
                     <td>
                         <a class="link-prod"
                             href="../templates/funcionario-edit.php?id=<?php echo $dados['Id_Adm'] ?>">Editar</a>

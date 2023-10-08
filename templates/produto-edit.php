@@ -90,25 +90,6 @@ include("../static/php/protect.php");
                     echo $dados['Quantidade'] ?>">
                 </div>
             </div>
-
-            <!--<input type="hidden" name="prod-id" value="<?php echo $pesquisa ?>">
-                <label for="nome-prod">Nome:</label>
-                <input type="text" placeholder="Nome" name="nome-prod" value="<?php
-                echo $dados['Nome'] ?>"><br>
-                <label for="quant-prod">Quantidade:</label>
-                <input type="number" placeholder="Quantidade" name="quant-prod" value="<?php
-                echo $dados['Quantidade'] ?>"><br>
-                <label for="custo-prod">Custo:</label>
-                <input type="text" placeholder="Custo" name="custo-prod" value="<?php
-                echo $dados['Custo'] ?>"><br>
-                <label for="preco-prod">Preço:</label>
-                <input type="text" placeholder="Preço" name="preco-prod" value="<?php
-                echo $dados['Preco'] ?>"><br>
-                <label for="tam-prod">Tamanho:</label>
-                <input type="text" placeholder="Tamanho" name="tam-prod" value="<?php
-                echo $dados['Tamanho'] ?>">-->
-            <!--<input type="file" accept="image/*" name="image-prod" value="<?php /* if (isset($_GET['search-id'])) echo $dados['Imagem'] */?>">-->
-
             <div id="botoes">
                 <button type="submit">Editar</button>
             </div>
