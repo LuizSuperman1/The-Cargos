@@ -3,12 +3,14 @@
 session_start();
 include('conexao.php');
 
-if(isset($_POST['user']) || isset($_POST['senha'])) {
+if (isset($_POST['user']) || isset($_POST['senha'])) {
 
     if (strlen($_POST['user']) == 0) {
-        echo "<p style=\"text-align:center;margin-top:20vh\">Preencha o usuário.</p><p style=\"text-align:center;\"><a href=\"/the_cargos/index.php\">Voltar</a></p>";
+        echo "<script>alert('Preencha o usuário!')</script>";
+        echo "<script>location.href='/the_cargos/index.php'</script>";
     } else if (strlen($_POST['senha']) == 0) {
-        echo "<p style=\"text-align:center;margin-top:20vh\">Preencha a senha.</p><p style=\"text-align:center;\"><a href=\"/the_cargos/index.php\">Voltar</a></p>";
+        echo "<script>alert('Preencha a senha!')</script>";
+        echo "<script>location.href='/the_cargos/index.php'</script>";
     } else {
         $user = $_POST['user'];
         $senha = $_POST['senha'];
@@ -19,12 +21,14 @@ if(isset($_POST['user']) || isset($_POST['senha'])) {
 
         if ($sql_query) {
             $adm = $sql_query->fetch(PDO::FETCH_ASSOC);
-            $_SESSION['logado'] = 'sim';
-
-            header("Location: /the_cargos/templates/produto-view.php");
-
-        } else {
-            echo "Falha ao logar! E-mail ou senha incorretos!";
+            if ($sql_query) {
+                $_SESSION['logado'] = 'sim';
+                print "<script>alert('O login foi um sucesso! Seja bem-vindo ADM!')</script>";
+                print "<script>location.href='/the_cargos/templates/produto-view.php'</script>";
+            } else {
+                print "<script>alert('Falha ao logar! E-mail ou senha incorretos!')</script>";
+                print "<script>location.href='/the_cargos/index.php'</script>";
+            }
         }
     }
 }
