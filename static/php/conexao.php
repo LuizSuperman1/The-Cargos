@@ -1,9 +1,9 @@
 <?php
 
-$serverName = "TheCargos.mssql.somee.com";
-$databaseName = 'TheCargos';
-$uid = 'pongo013_SQLLogin_2';
-$pwd = 'wwumx4dco3';
+$serverName = 'TheCargos1.mssql.somee.com';
+$databaseName = 'TheCargos1';
+$uid = 'pongo113_SQLLogin_1';
+$pwd = 'simnm2eglq';
 
 try {
     $conn = new PDO("sqlsrv:Server=$serverName;Database=$databaseName", $uid, $pwd);

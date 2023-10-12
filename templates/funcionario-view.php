@@ -23,6 +23,7 @@ include("../static/php/protect.php");
 </head>
 
 <body>
+
     <?php include("sidebar1.php") ?>
 
     <h1>Listagem de Funcionários</h1>
@@ -125,7 +126,7 @@ include("../static/php/protect.php");
                         <?php print $dados['Email']; ?>
                     </td>
                     <td>
-                        <?php print $dados['Acesso']; ?>
+                        <?php if ($dados['Acesso'] == 1) { echo "ADM"; } else if ($dados['Acesso'] == 2) { echo "Funcionário"; }; ?>
                     </td>
                     <td>
                         <a class="link-prod"

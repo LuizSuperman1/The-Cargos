@@ -82,9 +82,9 @@ include("../static/php/protect.php");
                     <td>
                         Nome
                     </td>
-                    <!--<td>
+                    <td>
                         Modelo
-                    </td>-->
+                    </td>
                     <td>
                         Tam.
                     </td>
@@ -178,9 +178,9 @@ include("../static/php/protect.php");
                     <td>
                         <?php print $dados['Nome']; ?>
                     </td>
-                    <!--<td>
+                    <td>
                         <?php print $dados['Modelo']; ?>
-                    </td>-->
+                    </td>
                     <td>
                         <?php print $dados['Tamanho']; ?>
                     </td>
