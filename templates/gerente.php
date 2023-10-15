@@ -20,7 +20,7 @@ include("../static/php/protect.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <title>Listagem de Produtos</title>
+    <title>Início</title>
 </head>
 
 <body>
@@ -55,7 +55,7 @@ include("../static/php/protect.php");
                 </div>
                 <div class="card">
                     <h2>Funcionários</h2>
-                    <p>Tela de listagem de Funcionários</p>
+                    <p>Tela de listagem de Funcionários.</p>
                     <a href="funcionario-view.php">Ir para a tela</a>
                 </div>
             </div>
