@@ -24,7 +24,7 @@ if (isset($_POST['user']) || isset($_POST['senha'])) {
             $_SESSION['logado'] = 'sim';
             $_SESSION['Acesso'] = $dados['Acesso'];
             print "<script>alert('O login foi um sucesso! Seja bem-vindo ADM!')</script>";
-            print "<script>location.href='/the_cargos/templates/produto-view.php'</script>";
+            print "<script>location.href='/the_cargos/templates/gerente.php'</script>";
         } else if ($dados['Acesso'] == '2') {
             print "<script>alert('Você não tem permissão para acessar essa página!')</script>";
             print "<script>location.href='/the_cargos/index.php'</script>";

@@ -53,7 +53,6 @@ body>.home-section>main .content aside {
 
 .home-section {
   position: relative;
-  background: #f5f5f5;
   min-height: 100vh;
   width: calc(100% - 78px);
   transition: all 0.5s ease;
