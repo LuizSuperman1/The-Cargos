@@ -49,7 +49,7 @@ include("../static/php/protect.php");
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputNome" class="col-sm-2 col-form-label">Termo de pesquisa:</label>
+                <label for="inputNome" class="col-sm-2">Termo de pesquisa: <br> (1 = ADM, 2 = Funcionário)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputNome" name="busca" value="<?php if (isset($_GET['busca']))
                         echo $_GET['busca'] ?>">

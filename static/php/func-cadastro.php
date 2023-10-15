@@ -16,8 +16,8 @@ $prodResult->execute();
 
 if ($prodResult) {
     print "<script>alert('Cadastrado com sucesso!')</script>";
-    print "<script>location.href='/the_cargos/templates/produto-view.php'</script>";
+    print "<script>location.href='/the_cargos/templates/funcionario-view.php'</script>";
 } else {
     print "<script>alert('Falha ao cadastrar!')</script>";
-    print "<script>location.href='/the_cargos/templates/produto-view.php'</script>";
+    print "<script>location.href='/the_cargos/templates/funcionario-view.php'</script>";
 }

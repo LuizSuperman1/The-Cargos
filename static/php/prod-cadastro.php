@@ -11,6 +11,7 @@ $quant = $_POST['quant-prod'];
 $custo = $_POST['custo-prod'];
 $preco = $_POST['preco-prod'];
 $tamanho = $_POST['tam-prod'];
+$modelo = $_POST['model-prod'];
 //$imagem = $_FILES['imagem-prod']['tmp-name'];
 
 /*--if ($imagem != "none") {
@@ -25,7 +26,7 @@ $tamanho = $_POST['tam-prod'];
     header('..templates/produto-view.php');
 }--*/
 
-$queryProd = "INSERT INTO calcas (Nome, Tamanho, Custo, Preco, Quantidade/*, Imagem*/) VALUES ('$nome', '$tamanho', '$custo', '$preco', '$quant')";
+$queryProd = "INSERT INTO calcas (Nome, Tamanho, Custo, Preco, Quantidade, Modelo/*, Imagem*/) VALUES ('$nome', '$tamanho', '$custo', '$preco', '$quant', '$modelo')";
 $prodResult = $conn->prepare($queryProd);
 $prodResult->execute();
 
