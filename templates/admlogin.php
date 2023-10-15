@@ -1,6 +1,6 @@
 <?php
 
-include('./static/php/conexao.php');
+include('../static/php/conexao.php');
 
 ?>
 <!DOCTYPE html>
@@ -17,50 +17,23 @@ include('./static/php/conexao.php');
 <body>
 
     <header>
-
-        <div id="title">
-            <h1>The Cargos</h1>
-        </div>
-
-        <div>
-            <h1>Bem-vindo!</h1>
-        </div>
-
+        <a href="landing.php">
+            < Voltar</a>
+                <img src="/the_cargos/static/images/ascalcas.png" alt="as-calcas">
+                <div>
+                    <h1>Bem-vindo!</h1>
+                </div>
     </header>
 
-
     <main>
-
-        <aside>
+        <form action="../static/php/login.php" method="POST">
             <h2>Login no sistema</h2>
-            <h2><span>The Cargos</span></h2>
-            <form action="./static/php/login.php" method="POST">
-                <input type="text" placeholder="Usuário" name="user">
-                <input type="password" placeholder="Senha" name="senha">
-                <input id="btn-login" type="submit" value="Entrar >">
-                
-            </form>
-
-        </aside>
-
-        <article>
-
-            <img src="/the_cargos/static/images/ascalcas.png" alt="as-calcas">
-
-        </article>
-
+            <span>The</span> <span>Cargos</span>
+            <input type="text" placeholder="Usuário" name="user">
+            <input type="password" placeholder="Senha" name="senha">
+            <input id="btn-login" type="submit" value="Entrar >">
+        </form>
     </main>
-
-    <footer>
-
-        <div id="footer_coopyright">
-
-            &#169
-            2023 all rights reserved
-
-        </div>
-
-    </footer>
 
 </body>
 
