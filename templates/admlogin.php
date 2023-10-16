@@ -17,7 +17,7 @@ include('../static/php/conexao.php');
 <body>
 
     <header>
-        <a href="landing.php">
+        <a href="/the_cargos/index.php">
             < Voltar</a>
                 <img src="/the_cargos/static/images/ascalcas.png" alt="as-calcas">
                 <div>

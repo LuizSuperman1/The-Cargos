@@ -54,7 +54,7 @@ h2 {
 span {
     font-size: 45px;
     font-weight: bold;
-    color: blueviolet;
+    color: darkorchid;
 }
 
 p {
@@ -80,13 +80,13 @@ form {
 form [type="submit"] {
     height: 50px;
     width: 50%;
-    background-color: blueviolet;
+    background-color: darkorchid;
     font-weight: bold;
 }
 
 form [type="submit"]:hover {
     cursor: pointer;
-    background-color: darkviolet;
+    background-color: violet;
 }
 
 input {

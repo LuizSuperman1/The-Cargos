@@ -1,7 +1,7 @@
 <div class="sidebar">
     <div class="logo-details">
         <i class='bx bxs-shopping-bag-alt bx-tada icon'></i>
-        <div class="logo_name">TheCargos</div>
+        <div class="logo_name"><a href="/the_cargos/templates/gerente.php">TheCargos</a></div>
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">

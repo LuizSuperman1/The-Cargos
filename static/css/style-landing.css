@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: lightcyan;
     margin: 0;
     padding: 0;
 }
@@ -9,14 +9,14 @@ a {
     text-align: center;
     margin-top: 10vh;
     margin-bottom: 10vh;
-    color: white;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 40px;
+    color: #fff;
 }
 
 a:hover {
     border-style: solid;
-    border-width: medium;
+    border-width: thick;
     border-radius: 10px;
     border-color: white;
     font-weight: bold;
@@ -28,7 +28,7 @@ img {
 }
 
 header {
-    background-color: #333;
+    background-color: darkorchid;
     color: #fff;
     text-align: center;
     display: flex;

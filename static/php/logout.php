@@ -6,4 +6,4 @@ if (!isset($_SESSION)) {
 
 session_destroy();
 
-header("Location: /the_cargos/index.php");
+header("Location: /the_cargos/templates/admlogin.php");

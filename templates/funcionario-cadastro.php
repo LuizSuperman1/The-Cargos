@@ -26,7 +26,7 @@ include("../static/php/protect.php");
 <body>
     <?php include("sidebar1.php") ?>
     <h1>Cadastrar Novo Funcionário</h1>
-    <div id="wrap">
+    <div class="div-form">
         <form action="../static/php/func-cadastro.php" method="POST">
 
             <div class="row mb-3">
