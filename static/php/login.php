@@ -21,7 +21,6 @@ if (isset($_POST['user']) || isset($_POST['senha'])) {
         $dados = $sql_query->fetch(PDO::FETCH_ASSOC);
 
         if ($dados['Acesso'] == '1') {
-            $_SESSION['logado'] = 'sim';
             $_SESSION['Acesso'] = $dados['Acesso'];
             print "<script>alert('O login foi um sucesso! Seja bem-vindo ADM!')</script>";
             print "<script>location.href='/the_cargos/templates/gerente.php'</script>";

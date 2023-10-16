@@ -56,10 +56,17 @@ include("../static/php/protect.php");
         <form action="../static/php/func-edit.php" method="POST">
             <input type="hidden" name="func-id" value="<?php echo $pesquisa ?>">
             <div class="row mb-3">
-                <label for="inputNome" class="col-sm-2 col-form-label">Email:</label>
+                <label for="inputEmail" class="col-sm-2 col-form-label">Email:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputNome" name="email-func" value="<?php
+                    <input type="text" class="form-control" id="inputEmail" name="email-func" value="<?php
                     echo $dados['Email'] ?>">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputSenha" class="col-sm-2 col-form-label">Senha:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputSenha" name="senha-func" value="<?php
+                    echo $dados['Senha'] ?>">
                 </div>
             </div>
             <div class="row mb-3">

@@ -33,18 +33,8 @@ include("../static/php/protect.php");
                 <label for="cat-label" class="col-sm-2 col-form-label">Pesquisar por:</label>
                 <div class="col-sm-10">
                     <select name="cat-choice" class="mb-3 form-select">
-                        <option value="id">Id</option>
                         <option value="email">Email</option>
                         <option value="acesso">Acesso</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="ordem-label" class="col-sm-2 col-form-label">Ordenar por:</label>
-                <div class="col-sm-10">
-                    <select name="ordem-choice" class="mb-3 form-select">
-                        <option value="alfabeto">Ordem Alfabética</option>
-                        <option value="id">Id</option>
                     </select>
                 </div>
             </div>
@@ -66,10 +56,10 @@ include("../static/php/protect.php");
             <table width="100%" height="5%">
                 <tr>
                     <td>
-                        Id
+                        Email
                     </td>
                     <td>
-                        Email
+                        Senha
                     </td>
                     <td>
                         Acesso
@@ -96,16 +86,6 @@ include("../static/php/protect.php");
                                 default:
                                     $cat_choose = "Id_Adm = '" . $pesquisa . "'";
                             }
-                            switch ($_GET['ordem-choice']) {
-                                case 'alfabeto':
-                                    $ordem_choose = "ORDER BY Email ASC";
-                                    break;
-                                case 'id':
-                                    $ordem_choose = "ORDER BY Id_Adm ASC";
-                                    break;
-                                default:
-                                    $ordem_choose = "ORDER BY Email ASC";
-                            }
                             $sql_code = "SELECT * FROM admin WHERE $cat_choose $ordem_choose";
                         } else {
                             $sql_code = "SELECT * FROM admin";
@@ -120,13 +100,18 @@ include("../static/php/protect.php");
                         ?>
                 <tr>
                     <td>
-                        <?php print $dados['Id_Adm']; ?>
-                    </td>
-                    <td>
                         <?php print $dados['Email']; ?>
                     </td>
                     <td>
-                        <?php if ($dados['Acesso'] == 1) { echo "ADM"; } else if ($dados['Acesso'] == 2) { echo "Funcionário"; }; ?>
+                        <?php print $dados['Senha'] ?>
+                    </td>
+                    <td>
+                        <?php if ($dados['Acesso'] == 1) {
+                            echo "ADM";
+                        } else if ($dados['Acesso'] == 2) {
+                            echo "Funcionário";
+                        }
+                        ; ?>
                     </td>
                     <td>
                         <a class="link-prod"

@@ -32,7 +32,6 @@ include("../static/php/protect.php");
                 <label for="cat-label" class="col-sm-2 col-form-label">Pesquisar por:</label>
                 <div class="col-sm-10">
                     <select name="cat-choice" class="mb-3 form-select">
-                        <option value="id">Id</option>
                         <option value="nome">Nome</option>
                         <option value="modelo">Modelo</option>
                         <option value="tamanho">Tamanho</option>
@@ -46,7 +45,6 @@ include("../static/php/protect.php");
                 <div class="col-sm-10">
                     <select name="ordem-choice" class="mb-3 form-select">
                         <option value="alfabeto">Ordem Alfabética</option>
-                        <option value="id">Id</option>
                         <option value="menor-custo">Menor Custo</option>
                         <option value="maior-custo">Maior Custo</option>
                         <option value="menor-preco">Menor Preço</option>
@@ -73,12 +71,6 @@ include("../static/php/protect.php");
         <div id="saida">
             <table width="100%" height="5%">
                 <tr>
-                    <td>
-                        Código
-                    </td>
-                    <!--<td>
-                        Imagem
-                    </td>-->
                     <td>
                         Nome
                     </td>
@@ -107,9 +99,6 @@ include("../static/php/protect.php");
                         if (strlen($_GET['busca']) > 0) {
                             $pesquisa = $_GET['busca'];
                             switch ($_GET['cat-choice']) {
-                                case 'id':
-                                    $cat_choose = "Id_Prod = '" . $pesquisa . "'";
-                                    break;
                                 case 'nome':
                                     $cat_choose = "Nome LIKE '%" . $pesquisa . "%'";
                                     break;
@@ -126,14 +115,11 @@ include("../static/php/protect.php");
                                     $cat_choose = "Quantidade = '%" . $pesquisa . "%'";
                                     break;
                                 default:
-                                    $cat_choose = "Id_Prod = '" . $pesquisa . "'";
+                                    $cat_choose = "Nome LIKE '%" . $pesquisa . "%'";
                             }
                             switch ($_GET['ordem-choice']) {
                                 case 'alfabeto':
                                     $ordem_choose = "ORDER BY Nome ASC";
-                                    break;
-                                case 'id':
-                                    $ordem_choose = "ORDER BY Id_Prod ASC";
                                     break;
                                 case 'menor-custo':
                                     $ordem_choose = "ORDER BY Custo DESC ";
@@ -169,12 +155,6 @@ include("../static/php/protect.php");
                     while ($dados = $sql_query->fetch(PDO::FETCH_ASSOC)) {
                         ?>
                 <tr>
-                    <td>
-                        <?php print $dados['Id_Prod']; ?>
-                    </td>
-                    <!--<td>
-                        <img class="img-prod" src="../static/images/calca-tactel-cinza.jpeg" alt="">
-                    </td>-->
                     <td>
                         <?php print $dados['Nome']; ?>
                     </td>

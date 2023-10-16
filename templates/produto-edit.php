@@ -63,6 +63,13 @@ include("../static/php/protect.php");
                 </div>
             </div>
             <div class="row mb-3">
+                <label for="inputNome" class="col-sm-2 col-form-label">Modelo:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputModelo" name="model-prod" value="<?php
+                    echo $dados['Modelo'] ?>">
+                </div>
+            </div>
+            <div class="row mb-3">
                 <label for="inputTamanho" class="col-sm-2 col-form-label">Tamanho:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputTamanho" name="tam-prod" value="<?php
