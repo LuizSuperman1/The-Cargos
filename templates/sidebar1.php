@@ -7,7 +7,7 @@
     <ul class="nav-list p-0">
         <li class="nav-select">
             <a href="produto-view.php">
-                <i class='bx bxl-dropbox'></i>
+            <i class="bx bx-package"></i>
                 <span class="links_name">Estoque</span>
             </a>
             <span class="tooltip">Estoque</span>

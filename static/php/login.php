@@ -26,10 +26,10 @@ if (isset($_POST['user']) || isset($_POST['senha'])) {
             print "<script>location.href='/the_cargos/templates/gerente.php'</script>";
         } else if ($dados['Acesso'] == '2') {
             print "<script>alert('Você não tem permissão para acessar essa página!')</script>";
-            print "<script>location.href='/the_cargos/index.php'</script>";
+            print "<script>location.href='/the_cargos/templates/admlogin.php'</script>";
         } else {
             print "<script>alert('Falha ao logar! E-mail ou senha incorretos!')</script>";
-            print "<script>location.href='/the_cargos/index.php'</script>";
+            print "<script>location.href='/the_cargos/templates/admlogin.php'</script>";
         }
     }
 }

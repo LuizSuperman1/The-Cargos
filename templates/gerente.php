@@ -29,11 +29,13 @@ include("../static/php/protect.php");
     ?>
     <div class="container">
         <div class="card">
+            <i class="bx bx-package"></i>
             <h2>Produtos</h2>
             <p>Tela de listagem de calças e bermudas.</p>
             <a href="produto-view.php">Ir para a tela</a>
         </div>
         <div class="card">
+            <i class="bx bx-face"></i>
             <h2>Funcionários</h2>
             <p>Tela de listagem de Funcionários.</p>
             <a href="funcionario-view.php">Ir para a tela</a>
