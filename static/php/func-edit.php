@@ -9,9 +9,8 @@ include_once('conexao.php');
 $funcid = $_POST['func-id'];
 $email = $_POST['email-func'];
 $senha = $_POST['senha-func'];
-$acesso = $_POST['acesso-func'];
 
-$queryProdEdit = "UPDATE admin SET Email='$email', Senha='$senha', Acesso='$acesso' WHERE Id_Adm='$funcid'";
+$queryProdEdit = "UPDATE admin SET Email='$email', Senha='$senha' WHERE Id_Adm='$funcid'";
 $prodUpdate = $conn->prepare($queryProdEdit);
 $prodUpdate->execute();
 

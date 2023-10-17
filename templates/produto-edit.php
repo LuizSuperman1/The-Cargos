@@ -27,15 +27,6 @@ include("../static/php/protect.php");
     <?php include("sidebar1.php") ?>
     <h1>Editar Produto</h1>
     <div class="div-form">
-        <form action="">
-            <div class="row mb-3">
-                <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
-                <div class="col-sm-10">
-                    <input type="number" readonly class="form-control" id="inputId"
-                        value="<?php echo $_REQUEST['id'] ?>">
-                </div>
-            </div>
-        </form><br>
         <?php
         if (isset($_GET['search-id'])) {
             $pesquisa = $_GET['search-id'];

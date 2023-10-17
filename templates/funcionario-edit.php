@@ -27,15 +27,6 @@ include("../static/php/protect.php");
     <?php include("sidebar1.php") ?>
     <h1>Editar Funcionário</h1>
     <div class="div-form">
-        <form action="">
-            <div class="row mb-3">
-                <label for="inputId" class="col-sm-2 col-form-label">Id: </label>
-                <div class="col-sm-10">
-                    <input type="number" readonly class="form-control" id="inputId"
-                        value="<?php echo $_REQUEST['id'] ?>">
-                </div>
-            </div>
-        </form><br>
         <?php
         if (isset($_GET['search-id'])) {
             $pesquisa = $_GET['search-id'];
@@ -68,12 +59,6 @@ include("../static/php/protect.php");
                     <input type="text" class="form-control" id="inputSenha" name="senha-func" value="<?php
                     echo $dados['Senha'] ?>">
                 </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputTamanho" class="col-sm-2 col-form-label">Acesso (1= Admin; <br> 2= Funcionário):</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputTamanho" name="acesso-func" value="<?php
-                    echo $dados['Acesso'] ?>" maxlength="1">
             </div>
             <div id="botoes">
                 <button type="submit">Editar</button>

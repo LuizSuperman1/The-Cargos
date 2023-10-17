@@ -36,20 +36,14 @@ include("../static/php/protect.php");
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="inputTamanho" class="col-sm-2 col-form-label">Acesso:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputTamanho" name="acesso-func" maxlength="3">
-                </div>
-            </div>
-            <div class="row mb-3">
                 <label for="inputCusto" class="col-sm-2 col-form-label">Senha:</label>
                 <div class="col-sm-10">
                     <input type="password" class="form-control" id="inputCusto" name="senha-func">
                 </div>
             </div>
-                <div id="botoes">
-                    <button type="submit">Cadastrar</button>
-                </div>
+            <div id="botoes">
+                <button type="submit">Cadastrar</button>
+            </div>
         </form>
     </div>
     <?php include("sidebar2.php") ?>

@@ -7,10 +7,9 @@ if (!isset($_SESSION)) {
 include_once('conexao.php');
 
 $email = $_POST['email-func'];
-$acesso = $_POST['acesso-func'];
 $senha = $_POST['senha-func'];
 
-$queryProd = "INSERT INTO admin (Email, Acesso, Senha) VALUES ('$email', '$acesso', '$senha')";
+$queryProd = "INSERT INTO admin (Email, Senha) VALUES ('$email', '$senha')";
 $prodResult = $conn->prepare($queryProd);
 $prodResult->execute();
 
