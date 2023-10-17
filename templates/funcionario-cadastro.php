@@ -38,7 +38,7 @@ include("../static/php/protect.php");
             <div class="row mb-3">
                 <label for="inputCusto" class="col-sm-2 col-form-label">Senha:</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputCusto" name="senha-func">
+                    <input type="password" class="form-control" id="inputCusto" name="senha-func" minlength="6">
                 </div>
             </div>
             <div id="botoes">

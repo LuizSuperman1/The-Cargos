@@ -32,12 +32,12 @@ include("../static/php/protect.php");
                 <label for="cat-label" class="col-sm-2 col-form-label">Pesquisar por:</label>
                 <div class="col-sm-10">
                     <select name="cat-choice" class="mb-3 form-select">
-                        <option value="nome">Nome</option>
-                        <option value="modelo">Modelo</option>
-                        <option value="tamanho">Tamanho</option>
-                        <option value="custo">Custo</option>
-                        <option value="preco">Preço</option>
-                        <option value="quantidade">Quantidade</option>
+                        <option value="nome"<?php if (isset($_GET['cat-choice'])) {if ($_GET['cat-choice'] === 'nome') { echo "selected";}}?>>Nome</option>
+                        <option value="modelo"<?php if (isset($_GET['cat-choice'])) {if ($_GET['cat-choice'] === 'modelo') { echo "selected";}}?>>Modelo</option>
+                        <option value="tamanho"<?php if (isset($_GET['cat-choice'])) {if ($_GET['cat-choice'] === 'tamanho') { echo "selected";}}?>>Tamanho</option>
+                        <option value="custo"<?php if (isset($_GET['cat-choice'])) {if ($_GET['cat-choice'] === 'custo') { echo "selected";}}?>>Custo</option>
+                        <option value="preco"<?php if (isset($_GET['cat-choice'])) {if ($_GET['cat-choice'] === 'preco') { echo "selected";}}?>>Preço</option>
+                        <option value="quantidade"<?php if (isset($_GET['cat-choice'])) {if ($_GET['cat-choice'] === 'quantidade') { echo "selected";}}?>>Quantidade</option>
                     </select>
                 </div>
             </div>
@@ -45,13 +45,13 @@ include("../static/php/protect.php");
                 <label for="ordem-label" class="col-sm-2 col-form-label">Ordenar por:</label>
                 <div class="col-sm-10">
                     <select name="ordem-choice" class="mb-3 form-select">
-                        <option value="alfabeto">Ordem Alfabética</option>
-                        <option value="menor-custo">Menor Custo</option>
-                        <option value="maior-custo">Maior Custo</option>
-                        <option value="menor-preco">Menor Preço</option>
-                        <option value="maior-preco">Maior Preço</option>
-                        <option value="menor-quantidade">Menor Quantidade</option>
-                        <option value="maior-quantidade">Maior Quantidade</option>
+                        <option value="alfabeto"<?php if (isset($_GET['ordem-choice'])) {if ($_GET['ordem-choice'] === 'alfabeto') { echo "selected";}} ?>>Ordem Alfabética</option>
+                        <option value="menor-custo"<?php if (isset($_GET['ordem-choice'])) {if ($_GET['ordem-choice'] === 'menor-custo') { echo "selected";}} ?>>Menor Custo</option>
+                        <option value="maior-custo"<?php if (isset($_GET['ordem-choice'])) {if ($_GET['ordem-choice'] === 'maior-custo') { echo "selected";}} ?>>Maior Custo</option>
+                        <option value="menor-preco"<?php if (isset($_GET['ordem-choice'])) {if ($_GET['ordem-choice'] === 'menor-preco') { echo "selected";}} ?>>Menor Preço</option>
+                        <option value="maior-preco"<?php if (isset($_GET['ordem-choice'])) {if ($_GET['ordem-choice'] === 'maior-preco') { echo "selected";}} ?>>Maior Preço</option>
+                        <option value="menor-quantidade"<?php if (isset($_GET['ordem-choice'])) {if ($_GET['ordem-choice'] === 'menor-quantidade') { echo "selected";}} ?>>Menor Quantidade</option>
+                        <option value="maior-quantidade"<?php if (isset($_GET['ordem-choice'])) {if ($_GET['ordem-choice'] === 'maior-quantidade') { echo "selected";}} ?>>Maior Quantidade</option>
                     </select>
                 </div>
             </div>

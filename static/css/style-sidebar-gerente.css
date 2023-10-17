@@ -284,8 +284,7 @@ ul {
 }
 
 .sidebar.open~.home-section {
-  left: 250px;
-  width: calc(100% - 250px);
+  width: 100%;
 }
 
 .home-section .text {
