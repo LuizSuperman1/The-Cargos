@@ -30,16 +30,7 @@ include("../static/php/protect.php");
     <div class="div-form">
         <form action="">
             <div class="row mb-3">
-                <label for="cat-label" class="col-sm-2 col-form-label">Pesquisar por:</label>
-                <div class="col-sm-10">
-                    <select name="cat-choice" class="mb-3 form-select">
-                        <option value="email">Email</option>
-                        <option value="acesso">Acesso</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="inputNome" class="col-sm-2">Termo de pesquisa: <br> (1 = ADM, 2 = Funcionário)</label>
+                <label for="inputNome" class="col-sm-2">Termo de pesquisa:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputNome" name="busca" value="<?php if (isset($_GET['busca']))
                         echo $_GET['busca'] ?>">
@@ -71,25 +62,8 @@ include("../static/php/protect.php");
                 <?php
 
                     if (isset($_GET['busca'])) {
-                        if (strlen($_GET['busca']) > 0) {
-                            $pesquisa = $_GET['busca'];
-                            switch ($_GET['cat-choice']) {
-                                case 'id':
-                                    $cat_choose = "Id_Adm = '" . $pesquisa . "'";
-                                    break;
-                                case 'email':
-                                    $cat_choose = "Email LIKE '%" . $pesquisa . "%'";
-                                    break;
-                                case 'acesso':
-                                    $cat_choose = "Acesso = '" . $pesquisa . "'";
-                                    break;
-                                default:
-                                    $cat_choose = "Id_Adm = '" . $pesquisa . "'";
-                            }
-                            $sql_code = "SELECT * FROM admin WHERE $cat_choose $ordem_choose";
-                        } else {
-                            $sql_code = "SELECT * FROM admin";
-                        }
+                        $pesquisa = $_GET['busca'];
+                        $sql_code = "SELECT * FROM admin WHERE Email LIKE '%" . $pesquisa . "%'";
                     } else {
                         $sql_code = "SELECT * FROM admin";
                     }
