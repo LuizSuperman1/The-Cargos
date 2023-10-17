@@ -7,10 +7,10 @@ if (isset($_POST['user']) || isset($_POST['senha'])) {
 
     if (strlen($_POST['user']) == 0) {
         echo "<script>alert('Preencha o usuário!')</script>";
-        echo "<script>location.href='/the_cargos/index.php'</script>";
+        echo "<script>location.href='/the_cargos/templates/admlogin.php'</script>";
     } else if (strlen($_POST['senha']) == 0) {
         echo "<script>alert('Preencha a senha!')</script>";
-        echo "<script>location.href='/the_cargos/index.php'</script>";
+        echo "<script>location.href='/the_cargos/templates/admlogin.php'</script>";
     } else {
         $user = $_POST['user'];
         $senha = $_POST['senha'];

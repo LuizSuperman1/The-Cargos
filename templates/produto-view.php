@@ -37,6 +37,7 @@ include("../static/php/protect.php");
                         <option value="tamanho">Tamanho</option>
                         <option value="custo">Custo</option>
                         <option value="preco">Preço</option>
+                        <option value="quantidade">Quantidade</option>
                     </select>
                 </div>
             </div>
@@ -112,7 +113,7 @@ include("../static/php/protect.php");
                                     $cat_choose = "Preco LIKE '%" . $pesquisa . "%'";
                                     break;
                                 case 'quantidade':
-                                    $cat_choose = "Quantidade = '%" . $pesquisa . "%'";
+                                    $cat_choose = "Quantidade LIKE '%" . $pesquisa . "%'";
                                     break;
                                 default:
                                     $cat_choose = "Nome LIKE '%" . $pesquisa . "%'";
@@ -122,10 +123,10 @@ include("../static/php/protect.php");
                                     $ordem_choose = "ORDER BY Nome ASC";
                                     break;
                                 case 'menor-custo':
-                                    $ordem_choose = "ORDER BY Custo DESC ";
+                                    $ordem_choose = "ORDER BY Custo ASC";
                                     break;
                                 case 'maior-custo':
-                                    $ordem_choose = "ORDER BY Custo ASC";
+                                    $ordem_choose = "ORDER BY Custo DESC";
                                     break;
                                 case 'menor-preco':
                                     $ordem_choose = "ORDER BY Preco ASC";

@@ -9,7 +9,7 @@ include_once('conexao.php');
 $email = $_POST['email-func'];
 $senha = $_POST['senha-func'];
 
-$queryProd = "INSERT INTO admin (Email, Senha) VALUES ('$email', '$senha')";
+$queryProd = "INSERT INTO admin (Email, Senha, Acesso) VALUES ('$email', '$senha', '2')";
 $prodResult = $conn->prepare($queryProd);
 $prodResult->execute();
 
