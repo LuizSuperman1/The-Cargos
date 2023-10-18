@@ -25,7 +25,7 @@ include("../static/php/protect.php");
 
 <body>
     <?php include("sidebar1.php") ?>
-    <h1>Cadastrar Novo Produto</h1>
+    <h1 class="page-title">Cadastrar Novo Produto</h1>
     <div class="div-form">
         <form action="../static/php/prod-cadastro.php" method="POST">
 

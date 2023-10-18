@@ -26,7 +26,7 @@ include("../static/php/protect.php");
 
     <?php include("sidebar1.php") ?>
 
-    <h1>Listagem de Funcionários</h1>
+    <h1 class="page-title">Listagem de Funcionários</h1>
     <div class="div-form">
         <form action="">
             <div class="row mb-3">

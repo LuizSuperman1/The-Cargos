@@ -25,7 +25,7 @@ include("../static/php/protect.php");
 
 <body>
     <?php include("sidebar1.php") ?>
-    <h1>Editar Funcionário</h1>
+    <h1 class="page-title">Editar Funcionário</h1>
     <div class="div-form">
         <?php
         if (isset($_GET['search-id'])) {

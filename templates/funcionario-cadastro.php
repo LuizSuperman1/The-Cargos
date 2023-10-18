@@ -25,14 +25,14 @@ include("../static/php/protect.php");
 
 <body>
     <?php include("sidebar1.php") ?>
-    <h1>Cadastrar Novo Funcionário</h1>
+    <h1 class="page-title">Cadastrar Novo Funcionário</h1>
     <div class="div-form">
         <form action="../static/php/func-cadastro.php" method="POST">
 
             <div class="row mb-3">
                 <label for="inputNome" class="col-sm-2 col-form-label">Email:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputNome" name="email-func">
+                    <input type="email" class="form-control" id="inputNome" name="email-func">
                 </div>
             </div>
             <div class="row mb-3">

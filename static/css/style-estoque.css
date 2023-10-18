@@ -10,6 +10,11 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+.page-title {
+  padding-top: 50px;
+  margin-bottom: 20px;
+}
+
 body>header {
   background: #111;
   color: white;
